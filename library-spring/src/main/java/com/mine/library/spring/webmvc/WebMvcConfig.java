@@ -17,7 +17,7 @@ public class WebMvcConfig {
     @Bean
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("classpath:/views/");
+        viewResolver.setPrefix("/WEB-INF/classes/views/");
         viewResolver.setSuffix(".jsp");
         viewResolver.setViewClass(JstlView.class);
         return viewResolver;
