@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <pre> Welcome to Spring MVC world</pre>
+<pre> ${errorMessage}</pre>
 </body>
 </html>
