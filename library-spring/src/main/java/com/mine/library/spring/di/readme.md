@@ -31,10 +31,11 @@ public class FunctionService {
         return "Hello "+word+" !";
     }
 }
+
 //DI实现依赖注入使用功能类的Bean
-@Service
 public class UseFunctionService {
-    @Autowired //使用@Autowired将FunctionService的实体Bean注入到UseFunctionService中，让UseFunctionService具备FunctionService的功能
+    //使用@Autowired将FunctionService的实体Bean注入到UseFunctionService中，让UseFunctionService具备FunctionService的功能
+    @Autowired 
     FunctionService functionService;
 
     public String sayHello(String word) {
