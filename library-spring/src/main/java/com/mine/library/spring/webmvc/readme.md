@@ -37,19 +37,20 @@ Spring MVC的配置支持，这样我们就可以重写这个类的方法，完�
     *   @ModelAttribute：@ModelAttribute本来的作用是绑定键值对到Model中，此处是让全局的@RequestMapping都能获得在此处设置的键值对。
 ### 其它配置
 #### 快捷的ViewController
+```java
     @RequestMapping("/index")
     public String demo() {
         return "index";
     }
-    
-    此处只是简单的页面转向，在实际开发中会涉及到大量这样的页面转向，若都这样写会很麻烦，我们可以通过在配置中重写addViewControllers
+```
+此处只是简单的页面转向，在实际开发中会涉及到大量这样的页面转向，若都这样写会很麻烦，我们可以通过在配置中重写addViewControllers
     来简化配置：
-    
+```java
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/index").setViewName("/index");
     }
-    
+```
     这样实现的代码更简洁，管理更集中。
 #### 路径匹配参数配置
     再Spring MVC中，路径参数如果带"."的话，"."会面的值将被忽略，例如"http://localhost:8080/anno/pathvar/xx.yy"，此时"."后面
@@ -69,3 +70,18 @@ Spring MVC的配置支持，这样我们就可以重写这个类的方法，完�
 ### 文件上传配置
 *   通过配置一个MultipartResolver来上传文件
 *   在Spring的控制器中，通过MultipartFile file来接收文件，通过MultipartFile[] files接收多个文件上传。
+### 自定义HttpMessageConverter
+*   HttpMessageConverter是用来处理request和response里的数据的。Spring为我们内置了大量的HttpMessageConverter，例如，MappingJackson2HttpMessageConverter
+、StringHttpMessageConverter等。
+### 服务器端推送技术
+*   服务器端推送技术在日常开发中较为常用，早期很多人的解决方案是使用Ajax向服务器轮询消息，这种方式有一个缺点就是会增大服务器的压力。
+*   本节的服务器推送方案基于：当客户端向服务器端发送请求，服务端会抓住这个请求不放，等有数据更新的时候才返回给客户端。这种方式的好处是
+减少了服务器的请求次数，大大减少了服务器的压力。
+*   除了服务器推送技术意外，还有另外一个双向通信的技术--WebSocket。
+*   本示例提供基于SSE（Server Send Event 服务端发送事件）的服务器端推送和基于Servlet3.0+的异步方法特性，其中一种方式需要更新浏览器的支持，
+第二种方式是跨浏览器的。
+## Spring MVC的测试
+    测试是保证软件质量的关键
+*   为了测试Web项目通常不需要启动项目，我们需要一些Servlet相关的模拟对象，比如：MockMVC、MocHttpServletRequest、MocHttpServletResponse、MocHttpSession等。
+*   我们使用@WebAppConfiguration指定加载的ApplicationContext是一个WebApplicationContext。
+*   测试依赖包 spring-test、junit
