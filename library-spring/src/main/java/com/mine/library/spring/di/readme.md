@@ -21,3 +21,24 @@ Spring IOC容器负责创建Bean，并通过容器将功能类Bean注入到你�
 - @Resource：JSR-250提供的注解。
 
 @Autowired、@Inject、@Resource可注解在set方法或者属性上。
+
+## 代码块
+@Service
+```java
+@Service //使用@Service注解声明当前FunctionService类是Spring容器管理的一个Bean
+public class FunctionService {
+    public String sayHello(String word) {
+        return "Hello "+word+" !";
+    }
+}
+//DI实现依赖注入使用功能类的Bean
+@Service
+public class UseFunctionService {
+    @Autowired //使用@Autowired将FunctionService的实体Bean注入到UseFunctionService中，让UseFunctionService具备FunctionService的功能
+    FunctionService functionService;
+
+    public String sayHello(String word) {
+        return functionService.sayHello(word);
+    }
+}
+```
