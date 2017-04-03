@@ -1,4 +1,4 @@
-package com.mine.library.spring.javaConfig;
+package com.mine.library.spring.javaconfig;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
