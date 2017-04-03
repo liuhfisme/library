@@ -23,6 +23,7 @@ Spring IOC容器负责创建Bean，并通过容器将功能类Bean注入到你�
 @Autowired、@Inject、@Resource可注解在set方法或者属性上。
 
 ## 代码块
+注解类
 ```java
 @Service //使用@Service注解声明当前FunctionService类是Spring容器管理的一个Bean
 public class FunctionService {
@@ -45,6 +46,7 @@ public class UseFunctionService {
     }
 }
 ```
+配置类
 ```java
 @Configuration //@Configuration声明当前类是一个配置类
 @ComponentScan("com.mine.library.spring.di")
@@ -52,6 +54,7 @@ public class UseFunctionService {
 public class DiConfig {
 }
 ```
+运行
 ```java
 public class Main {
     public static void main(String[] args) {

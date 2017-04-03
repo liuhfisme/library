@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
  * <p>多例模式</p>
  */
 @Service
-@Scope("prototype")
+@Scope("prototype") //声明Scope为Prototype
 public class DemoPrototypeService {
 }

@@ -1,19 +1,34 @@
-package com.mine.library.spring.el;
+# EL
+>Spring EL-Spring表达式语言，支持在xml和注解中使用表达式，类似于JSP的EL表达式语言。
 
-import org.apache.commons.io.IOUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.core.env.Environment;
-import org.springframework.core.io.Resource;
+Spring主要在注解@Value的参数中使用表达式。本例演示实现以下几种情况：
+- 注入普通字符。
+- 注入操作系统属性。
+- 注入表达式运算结果。
+- 注入其它Bean的属性。
+- 注入文件内容。
+- 注入网址内容。
+- 注入属性文件。
 
-/**
- * Created by liuff on 2017/3/27.
- */
+## 代码块
+普通字符串值注入
+```java
+@Service
+public class DemoService {
+    @Value("其他类的属性") //注入普通字符
+    private String another;
+
+    public String getAnother() {
+        return another;
+    }
+
+    public void setAnother(String another) {
+        this.another = another;
+    }
+}
+```
+配置类
+```java
 @Configuration
 @ComponentScan("com.mine.library.spring.el")
 @PropertySource("classpath:com/mine/library/spring/el/demo.properties") //使用@PropertySource注入配置文件
@@ -62,3 +77,4 @@ public class ElConfig {
         }
     }
 }
+```

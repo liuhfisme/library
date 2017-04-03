@@ -9,6 +9,7 @@ Java配置是通过@Configuration和@Bean来实现的。
 @Service、@Component、@Repository、@Controller）。
 
 ## 代码块
+配置类
 ```java
 @Configuration //声明一个配置类，此处没有用到包扫描，是因为所有的Bean都在此类中定义了
 public class JavaConfig {
