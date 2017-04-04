@@ -1,5 +1,9 @@
-# Overview
-*Spring MVC 4.x*
+# Spring MVC 4.x
+>SSH应该是大多数编程人员初次接触的web框架，不过我们很多人会把S理解为Struts 2.x，实际上指的是Struts 1.x+Spring+Hibernate，其实
+Struts 1.x和Struts 2.x两者在技术上无任何关系，Struts 2.x是借助了Struts 1.x的好名声，让许多开发者认为Struts 2.x是Struts 1.x
+的继承者，不过这些都不重要了，在SSH框架盛行的时候，在国内它的确可称得上霸主，不过根据知名热部署软件JRebel厂商的统计，Spring MVC
+的市场占有率是40%，而Struts 2只有可怜的6%，说了这么多，只是为了让大家了解Spring MVC是目前Java Web框架当之无愧的霸主，让大家更
+有信息的学习Spring MVC。
 ## 三层架构&MVC
 *   说到Spring MVC，不得不先来谈谈什么是MVC，它和三层架构是什么关系。
 可能很多人会说：
