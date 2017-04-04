@@ -10,6 +10,7 @@
     <modules>
         <module>library-utils</module>
         <module>library-spring</module>
+        <module>library-sboot</module>
     </modules>
     <packaging>pom</packaging>
 
