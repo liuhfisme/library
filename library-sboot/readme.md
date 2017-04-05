@@ -104,4 +104,19 @@ server.context-path=/sboot
 第三方 starter pom
 - Handlebars：https://github.com/allegro/handlebars-spring-boot-starter
 - Vaadin：https://github.com/vaadin/spring/tree/master/vaadin-spring-boot-starter
-- Apache Camel：https://github.com/
+- Apache Camel：https://github.com/apache/camel/tree/master/components/camel-spring-boot
+- WRO4J：https://github.com/sbuettner/spring-boot-autoconfigure-wro4j
+- Spring Batch（高级用法）：https://github.com/codecentric/spring-boot-starter-batch-web
+- HDIV：https://github.com/hdiv/spring-boot-starter-hdiv
+- Jade Templates(Jade4J)：https://github.com/domix/spring-boot-starter-jade4j
+- Activiti：https://github.com/Activiti/Activiti/tree/master/modules/activiti-spring-boot/spring-boot-starters
+
+#### 使用xml配置
+Spring Boot提倡零配置，即无xml配置，但是在实际项目中，可能有一些特殊要求你必须使用xml配置，这时我们可以通过Spring提供的
+@ImportResource来加在xml配置，例如：
+```java
+@ImportResource({"classpath:some-context.xml","classpath:another-context.xml"})
+```
+### 外部配置
+>Spring Boot允许使用properties文件、yaml文件或者命令行参数作为外部配置。
+
