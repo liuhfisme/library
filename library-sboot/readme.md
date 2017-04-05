@@ -53,3 +53,55 @@ Spring Boot的全局配置文件的作用是对一些默认配置的配置值进
 server.port=8800
 server.context-path=/sboot
 ```
+#### starter pom
+>Srping Boot为我们提供了简化企业级开发绝大多数场景的starter pom，只要使用了应用场景所需要的starter pom，相关的技术配置将会消除
+，就可以得到Spring Boot为我们提供的自动配置的Bean。
+
+官方 starter pom
+- spring-boot-starter：Spring Boot核心starter，包含自动配置、日志、yaml配置文件的支持。
+- spring-boot-starter-actuator：准生产特性，用来监控和管理应用。
+- spring-boot-starter-remote-shell：提供基于ssh协议的监控和管理。
+- spring-boot-starter-amqp：使用spring-rabbit来支持AMQP。
+- spring-boot-starter-aop：使用spring-aop和AspectJ支持面向切面编程。
+- spring-boot-starter-batch：对Spring Batch的支持。
+- spring-boot-starter-cache：对Spring Cache抽象的支持。
+- spring-boot-starter-cloud-connectors：对云平台（Cloud Foundry、Heroku）提供的服务提供简化的链接方式。
+- spring-boot-starter-data-elasticsearch：通过spring-data-elastiesearch对Elasticsearch支持。
+- spring-boot-starter-data-gemfire：通过spring-data-gemfire对分布式存储GenFire的支持。
+- spring-boot-starter-data-jpa：对JPA的支持，包含spring-data-jpa、spring-orm和Hibernate。
+- spring-boot-starter-data-mongodb：通过spring-data-mongodb，对MongoDB进行支持。
+- spring-boot-starter-data-rest：通过spring-data-rest-webmvc将Spring Data repository暴露为REST形式的服务。
+- spring-boot-starter-data-solr：通过spring-data-solr对Apache Solr数据检索平台的支持。
+- spring-boot-starter-freemarker：对FreeMarker模板引擎的支持。
+- spring-boot-starter-groovy-templates：对Groovy模板引擎的支持。
+- spring-boot-starter-hateoas：通过spring-hateoas对基于HATEOAS的REST形式的网络服务的支持。
+- spring-boot-starter-hornetq：通过HornetQ对JMS的支持。
+- spring-boot-starter-integration：对系统集成框架spring-integration的支持。
+- spring-boot-starter-jdbc：对JDBC数据库的支持。
+- spring-boot-starter-jersey：对Jersery REST形式的网络服务的支持。
+- spring-boot-starter-jta-atomikos：通过Atomikos对分布式事务的支持。
+- spring-boot-starter-jta-bitronix：通过Bitronix对分布式事务的支持。
+- spring-boot-starter-mail：对javax.mail的支持。
+- spring-boot-starter-mobile：对spring-mobile的支持。
+- spring-boot-starter-mustache：对Mustache模板引擎的支持。
+- spring-boot-starter-redis：对键值对内存数据库Redis的支持，包含spring-redis。
+- spring-boot-starter-security：对spring-security的支持。
+- spring-boot-starter-social-facebook：通过spring-social-facebook对Facebook的支持。
+- spring-boot-starter-social-linkedin：通过spring-social-linkedin对Linkedin的支持。
+- spring-boot-starter-social-twitter：通过spring-social-twitter对Twitter的支持。
+- spring-boot-starter-test：对常用的测试框架JUnit、Hamcrest和Mockito的支持，包含spring-test模块。
+- spring-boot-starter-thymeleaf：对Thymeleaf模板引擎的支持，包含于Spring整合的配置。
+- spring-boot-starter-velocity：对Velocity模板引擎的支持。
+- spring-boot-starter-web：对Web项目开发的支持，包含Tomcat和spring-webmvc。
+- spring-boot-starter-Tomcat：Spring Boot默认的Servlet容器Tomcat。
+- spring-boot-starter-jetty：使用Jetty作为Servlet容器替换Tomcat。
+- spring-boot-starter-undertow：使用Undertow作为Servlet容器替换Tomcat。
+- spring-boot-starter-logging：Spring Boot默认的日志框架Logback
+- spring-boot-starter-log4j：支持使用Log4J日志框架。
+- spring-boot-starter-websocket：对WebSocket开发的支持。
+- spring-boot-starter-ws：对Spring Web Services的支持。
+
+第三方 starter pom
+- Handlebars：https://github.com/allegro/handlebars-spring-boot-starter
+- Vaadin：https://github.com/vaadin/spring/tree/master/vaadin-spring-boot-starter
+- Apache Camel：https://github.com/
