@@ -120,3 +120,145 @@ Spring Boot提倡零配置，即无xml配置，但是在实际项目中，可能
 ### 外部配置
 >Spring Boot允许使用properties文件、yaml文件或者命令行参数作为外部配置。
 
+#### 命令行参数配置
+Spring Boot可以是基于jar包运行的，打成jar包的程序可以直接通过下面命令进行：
+```text
+java -jar xx.jar
+```
+可以通过以下命令修改Tomcat端口号：
+```text
+java -jar xx.jar --server.port=8800
+```
+#### 常规属性配置
+>上面我们讲述了在常规Spring环境下，注入properties文件里的值的方式，通过@PropertySource指定properties文件的位置，然后通过
+@Value注入值。在Spring Boot里，我们只需在application.properties定义属性，直接使用@Value注入即可。
+
+实战
+
+application.properties增加属性：
+```properties
+book.author=feifei.liu
+book.name=Spring Boot
+```
+修改入口类：
+```java
+@RestController
+@SpringBootApplication //Spring Boot项目的核心注解，主要目的是开启自动配置
+public class LibraryApplication {
+    @Value("${book.author}")
+    private String bookAuthor;
+    @Value("${book.name}")
+    private String bookName;
+
+    @RequestMapping("/")
+    String index() {
+        //return "Hello Spring Boot !";
+        return "book name is:"+bookName+" and book author is:"+bookAuthor;
+    }
+
+    public static void main(String[] args) {
+//        SpringApplication.run(LibraryApplication.class, args);
+        SpringApplication application = new SpringApplication(LibraryApplication.class);
+//        application.setBannerMode(Banner.Mode.OFF); // 关闭 banner
+        application.run(args);
+    }
+}
+```
+#### 类型安全的配置（基于properties）
+>上述例子中使用@Value注入每个配置在实际项目中会显得格外麻烦，因为我们的配置通常会是许多个，若使用上述例子的方式则要使用@Value
+注入很多次。
+
+Spring Boot还提供了基于类型安全的配置方式，通过@ConfigurationProperties将properties属性和一个Bean及其属性关联，从而实现类型
+安全的配置。
+
+实战
+
+新建application-author.properties文件,添加以下内容：
+```properties
+author.name=feifei.liu
+author.age=26
+```
+在application.properties文件中引入application-author.properties文件，引入方式如下：
+```properties
+spring.profiles.active=author
+```
+当然，我们也可以直接在application.properties文件中添加。
+
+通过@ConfigurationProperties注入author属性：
+```java
+@Component
+@ConfigurationProperties(prefix = "author")
+public class AuthorSettings {
+    private String name;
+    private Long age;
+
+    public AuthorSettings(){
+        super();
+    }
+    public AuthorSettings(String name, Long age) {
+        super();
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getAge() {
+        return age;
+    }
+
+    public void setAge(Long age) {
+        this.age = age;
+    }
+}
+```
+可以用@Autowired直接注入属性配置：
+```java
+@RestController
+@SpringBootApplication //Spring Boot项目的核心注解，主要目的是开启自动配置
+public class LibraryApplication {
+    @Value("${book.author}")
+    private String bookAuthor;
+    @Value("${book.name}")
+    private String bookName;
+    @Autowired
+    private AuthorSettings authorSettings;
+
+    @RequestMapping("/")
+    String index() {
+        //return "Hello Spring Boot !";
+        //return "book name is:"+bookName+" and book author is:"+bookAuthor;
+        return "author name is "+authorSettings.getName()+" and author age is "+authorSettings.getAge();
+    }
+
+    public static void main(String[] args) {
+//        SpringApplication.run(LibraryApplication.class, args);
+        SpringApplication application = new SpringApplication(LibraryApplication.class);
+//        application.setBannerMode(Banner.Mode.OFF); // 关闭 banner
+        application.run(args);
+    }
+}
+```
+### 日志配置
+>Spring Boot支持Java Util Loggin、Log4J、Log4J2和Logback作为日志框架，无论使用哪种日志框架，Spring Boot已为当前使用日志框架
+的控制台输出及文件输出做好了配置，默认情况下，Spring Boot使用Logback作为日志框架。
+
+配置日志级别：
+```properties
+logging.file=D:/mylog/log.log
+```
+配置日志文件，格式为logging.level.包名=级别：
+```properties
+logging.level.org.springframework.web=debug
+```
+### Profile配置
+>Profile是Spring用来针对不同的环境对不同的配置提供支持的，全局Profile配置使用application-${profile}.properties（如上述例子的
+application-author.properties）。
+
+这样，我们就可以将开发环境配置文件和生产环境配置文件分开来处理。
