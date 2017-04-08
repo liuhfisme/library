@@ -17,6 +17,21 @@
     </modules>
     <packaging>pom</packaging>
 
+    <properties>
+        <spring-boot-starter-version>1.5.2.RELEASE</spring-boot-starter-version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-starter-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <build>
         <plugins>
             <plugin>
