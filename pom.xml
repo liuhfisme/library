@@ -13,6 +13,7 @@
         <module>library-sboot</module>
         <module>library-game</module>
         <module>library-demo</module>
+        <module>library-workjob</module>
     </modules>
     <packaging>pom</packaging>
 
