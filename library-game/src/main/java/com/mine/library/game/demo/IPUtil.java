@@ -1,13 +1,15 @@
+/*
 package com.mine.library.game.demo;
 
-import javax.servlet.http.HttpServletRequest;
 
+*/
 /**
  * ClassName: IPUtil
  * @Description: 获取真实IP两种方法
  * @author feifei.liu
  * @date 2017年1月16日 下午4:04:01
- */
+ *//*
+
 public class IPUtil {
 	public String getRemortIP(HttpServletRequest request) {
 		if (request.getHeader("x-forwarded-for") == null) {
@@ -32,3 +34,4 @@ public class IPUtil {
 	public static void main(String[] args) {
 	}
 }
+*/
