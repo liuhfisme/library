@@ -1,5 +1,6 @@
 package com.mine.library.sboot.jpa.support;
 
+import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 
 import javax.persistence.EntityManager;
@@ -14,10 +15,15 @@ import java.util.List;
 public class CustomRepositoryImpl<T, ID extends Serializable> extends SimpleJpaRepository<T, ID> implements CustomRepository<T, ID> {
     private final EntityManager em;
 
-    public CustomRepositoryImpl(Class<T> domainClass, EntityManager em) {
-        super(domainClass, em);
+    public CustomRepositoryImpl(JpaEntityInformation entityInformation, EntityManager em) {
+        super(entityInformation, em);
         this.em = em;
     }
+
+//    public CustomRepositoryImpl(Class<T> domainClass, EntityManager em) {
+//        super(domainClass, em);
+//        this.em = em;
+//    }
 
     /* (non-Javadoc)
      * <p>Title: rollback</p>

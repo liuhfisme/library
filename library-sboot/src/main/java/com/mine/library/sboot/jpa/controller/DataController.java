@@ -24,6 +24,7 @@ public class DataController {
 
     @RequestMapping("/q1")
     public List<Person> q1(String name) {
+        System.out.println(personRepository.count());
         List<Person> people = personRepository.findByName(name);
         return people;
     }

@@ -37,7 +37,7 @@ public interface CustomRepository<T, ID extends Serializable> extends JpaReposit
     public List findBySql(String sqlString, Class resultClass);
 
     @SuppressWarnings("rawtypes")
-    public List findBySql(String sqlString,String resultSetMapping);
+    public List findBySql(String sqlString, String resultSetMapping);
 
     public void clear();
 
