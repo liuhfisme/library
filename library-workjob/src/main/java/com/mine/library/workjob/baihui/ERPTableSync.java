@@ -27,6 +27,8 @@ public class ERPTableSync {
                 Class.forName("com.mysql.jdbc.Driver");
                 connection210 = DriverManager.getConnection(url210, username210, password210);
                 connection246 = DriverManager.getConnection(url246, username246, password246);
+                connection210.setAutoCommit(false);
+                connection246.setAutoCommit(false);
             } catch (ClassNotFoundException e) {
                 System.out.println("数据库连接失败！");
                 e.printStackTrace();
@@ -120,6 +122,7 @@ public class ERPTableSync {
         while (projectfuncRs.next()) {
             existfuncalias.add(projectfuncRs.getString("id")+"_"+projectfuncRs.getString("alias"));
         }
+        Statement stmt = connection210.createStatement();
         //do it
         while (projectidsRs.next()) {
             String projectId = projectidsRs.getString("id");
@@ -132,10 +135,11 @@ public class ERPTableSync {
                 String newUUID1 = UUID.randomUUID().toString().replace("-","");
                 System.out.println(readyInsertSql);
                 readyInsertSql = readyInsertSql.replace("<?0>",newUUID0).replace("<?1>", newUUID1).replace("<?2>", projectId);
-                System.out.println(readyInsertSql);
-                connection210.createStatement().execute(readyInsertSql);
+                stmt.addBatch(readyInsertSql);
             }
         }
+        stmt.executeBatch();
+        connection210.commit();
     }
 
     /**
@@ -144,31 +148,73 @@ public class ERPTableSync {
      */
     public static void executeRoleInsert210() throws SQLException {
         String operationSql = "select id from s_operation where ABBR in('create','update','delete','view');";
-        String roleSql = "select id from s_role";
+        String roleSql = "select id from s_role where type=0";
         String projectfuncsql = "SELECT f.ID as fid,p.ID as pid FROM s_function f,s_project p WHERE f.PROJECT_ID=p.ID AND f.ALIAS IN('verificationPay','pay','basicUnitGroup','settlement','currency','verificationReceipt','payDetail','proceeds','receiveDetail','address','baseConfig','payDetailActual','payActual','receiveDetailActual','receiveActual');";
         ResultSet operationRs = connection210.createStatement().executeQuery(operationSql);
         ResultSet roleRs = connection210.createStatement().executeQuery(roleSql);
         ResultSet projectfuncRs = connection210.createStatement().executeQuery(projectfuncsql);
+        //由于ResultSet只能循环一次，则预处理成List集合
+        Set<String> operationSet = new HashSet<>();
         while (operationRs.next()) {
             String operationId = operationRs.getString("id");
-            while (roleRs.next()) {
-                String roleId = roleRs.getString("id");
-                while (projectfuncRs.next()) {
-                    String functionId = projectfuncRs.getString("fid");
-                    String projectId = projectfuncRs.getString("pid");
+            operationSet.add(operationId);
+        }
+        Set<String> roleIdSet = new HashSet<>();
+        while (roleRs.next()) {
+            String roleId = roleRs.getString("id");
+            roleIdSet.add(roleId);
+        }
+        Statement stmt = connection210.createStatement();
+        int count = 0;
+        while (projectfuncRs.next()) {
+            String functionId = projectfuncRs.getString("fid");
+            String projectId = projectfuncRs.getString("pid");
+            for (String roleId:roleIdSet) {
+                for (String operationId:operationSet) {
                     String newUUID = UUID.randomUUID().toString().replace("-","");
                     String readyInsertSql = "insert into s_role_permission (id,role_id,function_id,operation_id,project_id)"+
                             "values('"+newUUID+"','"+roleId+"','"+functionId+"','"+operationId+"','"+projectId+"')";
-                    System.out.println(readyInsertSql);
-                    connection210.createStatement().execute(readyInsertSql);
+                    //stmt.addBatch(readyInsertSql);
+                    //System.out.println(readyInsertSql);
+                    //stmt.execute(readyInsertSql);
+
                 }
             }
+            System.out.println(++count);
         }
+        System.out.println(roleIdSet.size());
+        System.out.println(operationSet.size());
+        //stmt.executeBatch();
+        long s = System.currentTimeMillis();
+        //connection210.commit();
+        long e = System.currentTimeMillis();
+        System.out.println("耗时："+(e-s));
+    }
+
+    /**
+     * 功能表PID纠正处理
+     * @throws SQLException
+     */
+    public static void executeFuncUpdate210() throws SQLException {
+        String baseConfigFuncSql = "select id, project_id from s_function where alias='baseConfig';";
+        ResultSet baseConfigFuncRs = connection210.createStatement().executeQuery(baseConfigFuncSql);
+        Statement batchStmt = connection210.createStatement();
+        while (baseConfigFuncRs.next()) {
+            String baseConfigFuncId = baseConfigFuncRs.getString("id");
+            String projectId = baseConfigFuncRs.getString("project_id");
+            //("settlement".equals(alias)||"basicUnitGroup".equals(alias)||"currency".equals(alias)||"address".equals(alias))
+            String baseConfigChildUpdateSql = "update s_function set pid='"+baseConfigFuncId+"' where project_id='"+projectId+"'"
+                    +" and alias in('settlement','basicUnitGroup','currency','address')";
+            batchStmt.addBatch(baseConfigChildUpdateSql);
+        }
+        batchStmt.executeBatch();
+        connection210.commit();
     }
 
     public static void main(String[] args) throws SQLException {
-        //executeFuncInsert210(insertSqlMap); //功能表插入
-        executeRoleInsert210();
+        //executeFuncInsert210(); //功能表插入
+        //executeFuncUpdate210(); //功能表纠正
+        executeRoleInsert210(); //权限表插入
 
         connection246.close();
         connection210.close();
