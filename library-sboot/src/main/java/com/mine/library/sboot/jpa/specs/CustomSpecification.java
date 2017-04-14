@@ -1,5 +1,6 @@
 package com.mine.library.sboot.jpa.specs;
 
+import com.google.common.collect.Iterables;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
@@ -39,7 +40,7 @@ public class CustomSpecification {
                         }
                     }
                 }
-                return predicates.isEmpty()?cb.conjunction():cb.and((Predicate[]) predicates.toArray());
+                return predicates.isEmpty()?cb.conjunction():cb.and(Iterables.toArray(predicates, Predicate.class));
             }
             private <T> Object getValue(T example, Attribute<T, ?> attr) {
                 return ReflectionUtils.getField((Field) attr.getJavaMember(), example);

@@ -3,6 +3,8 @@ package com.mine.library.sboot.jpa.controller;
 import com.mine.library.sboot.jpa.dao.PersonRepository;
 import com.mine.library.sboot.jpa.domain.Person;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,5 +28,11 @@ public class DataController {
         System.out.println(personRepository.count());
         List<Person> people = personRepository.findByName(name);
         return people;
+    }
+
+    @RequestMapping("/auto")
+    public Page<Person> auto(Person person) {
+        Page<Person> pagePerple = personRepository.findByAuto(person, new PageRequest(0, 10));
+        return pagePerple;
     }
 }

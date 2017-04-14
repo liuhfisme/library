@@ -1,5 +1,8 @@
 package com.mine.library.sboot.jpa.support;
 
+import com.mine.library.sboot.jpa.specs.CustomSpecification;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 
@@ -189,5 +192,18 @@ public class CustomRepositoryImpl<T, ID extends Serializable> extends SimpleJpaR
      */
     public enum QueryType {
         total, data
+    }
+
+    /**
+     *
+     * @param example
+     * @param pageable
+     * @return
+     * @author feifei.liu
+     * @date 2017年4月14日 下午22:52:01
+     */
+    @Override
+    public Page<T> findByAuto(T example, Pageable pageable) {
+        return findAll(CustomSpecification.byAuto(em, example), pageable);
     }
 }

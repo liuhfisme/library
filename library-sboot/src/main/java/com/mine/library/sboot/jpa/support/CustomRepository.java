@@ -1,5 +1,7 @@
 package com.mine.library.sboot.jpa.support;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -15,39 +17,41 @@ import java.util.List;
  */
 @NoRepositoryBean
 public interface CustomRepository<T, ID extends Serializable> extends JpaRepository<T, ID>, JpaSpecificationExecutor<T> {
-    public Object saveObject(Object entity);
+    Object saveObject(Object entity);
 
-    public T findOne(Specification<T> spec);
+    T findOne(Specification<T> spec);
 
-    public Object findOne(Class<?> entityClass, Object primaryKey);
+    Object findOne(Class<?> entityClass, Object primaryKey);
 
-    public List<T> findAll(Specification<T> spec);
+    List<T> findAll(Specification<T> spec);
 
-    public long count(Specification<T> spec);
-
-    @SuppressWarnings("rawtypes")
-    public List findAll(String queryString);
+    long count(Specification<T> spec);
 
     @SuppressWarnings("rawtypes")
-    public List findBySql(String sqlString);
+    List findAll(String queryString);
+
+    @SuppressWarnings("rawtypes")
+    List findBySql(String sqlString);
 
 //    public Map<QueryType, Object> findBySql(String sqlString, int start, int length);
 
     @SuppressWarnings("rawtypes")
-    public List findBySql(String sqlString, Class resultClass);
+    List findBySql(String sqlString, Class resultClass);
 
     @SuppressWarnings("rawtypes")
-    public List findBySql(String sqlString, String resultSetMapping);
+    List findBySql(String sqlString, String resultSetMapping);
 
-    public void clear();
+    void clear();
 
-    public void rollback();
+    void rollback();
 
-    public Query createNativeQuery(String sqlString);
+    Query createNativeQuery(String sqlString);
 
-    public int execute(String sqlString);
+    int execute(String sqlString);
 
-    public int updateQuery(String updateQuery);
+    int updateQuery(String updateQuery);
 
-    public StoredProcedureQuery createStoredProcedureQuery(String procedureName);
+    StoredProcedureQuery createStoredProcedureQuery(String procedureName);
+
+    Page<T> findByAuto(T example, Pageable pageable);
 }
