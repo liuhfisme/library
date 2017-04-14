@@ -13,8 +13,7 @@ import java.util.List;
  */
 @RestController
 public class DataController {
-    @Autowired
-    PersonRepository personRepository;
+    @Autowired PersonRepository personRepository;
 
     @RequestMapping("/save")
     public Person save(String name, String address, Integer age) {
