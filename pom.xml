@@ -12,7 +12,6 @@
         <module>library-spring</module>
         <module>library-sboot</module>
         <module>library-game</module>
-        <module>library-sbweb</module>
     </modules>
     <packaging>pom</packaging>
 
