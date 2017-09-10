@@ -22,7 +22,8 @@
 //@EnableTransactionManagement
 //public class JpaConfiguration {
 //    @Bean
-//    @ConfigurationProperties(prefix = "spring.datasource")
+
+//@ConfigurationProperties(prefix = "spring.datasource")
 //    public DataSource dataSource() {
 //        return DataSourceBuilder.create().build();
 //        /*EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();

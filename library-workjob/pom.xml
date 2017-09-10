@@ -11,16 +11,4 @@
 
     <artifactId>library-workjob</artifactId>
 
-    <properties>
-        <mysql.version>6.0.5</mysql.version>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.version}</version>
-        </dependency>
-    </dependencies>
-
 </project>
