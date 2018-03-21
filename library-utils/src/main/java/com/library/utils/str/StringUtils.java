@@ -1,5 +1,7 @@
 package com.library.utils.str;
 
+import java.util.UUID;
+
 /**
  * Created by feifei.liu on 2017/3/29.
  */
@@ -12,6 +14,9 @@ public class StringUtils {
 //                System.out.println("x:"+ss.charAt(i));
 //            }
 //        }
-
+        System.out.println(UUID.randomUUID().toString().replace("-",""));
+        /*for (int i=0;i<215;i++) {
+            System.out.println(UUID.randomUUID().toString().replace("-",""));
+        }*/
     }
 }

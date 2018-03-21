@@ -12,6 +12,8 @@
         <module>library-spring</module>
         <module>library-sboot</module>
         <module>library-game</module>
+        <module>library-quartz</module>
+        <module>library-scheduler</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -253,6 +255,16 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.5.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.linuxense</groupId>
+            <artifactId>javadbf</artifactId>
+            <version>0.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.5</version>
         </dependency>
     </dependencies>
 

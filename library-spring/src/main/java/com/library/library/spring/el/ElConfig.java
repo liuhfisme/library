@@ -16,7 +16,7 @@ import org.springframework.core.io.Resource;
  */
 @Configuration
 @ComponentScan("com.library.library.spring.el")
-@PropertySource("classpath:com/mine/library/spring/el/demo.properties") //使用@PropertySource注入配置文件
+@PropertySource("classpath:com/library/library/spring/el/demo.properties") //使用@PropertySource注入配置文件
 public class ElConfig {
     @Value("I Love You！") //注入普通字符
     private String normal;

@@ -1,10 +1,10 @@
 //package com.mine.library.sboot.javaconfig;
 //
 //import org.springframework.context.annotation.Configuration;
-//import org.springframework.data.web.config.EnableSpringDataWebSupport;
-//import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-//import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-//import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+//import org.springframework.data.web.javaconfig.EnableSpringDataWebSupport;
+//import org.springframework.web.servlet.javaconfig.annotation.EnableWebMvc;
+//import org.springframework.web.servlet.javaconfig.annotation.ViewControllerRegistry;
+//import org.springframework.web.servlet.javaconfig.annotation.WebMvcConfigurerAdapter;
 //
 ///**
 // * Created by liuff on 2017/4/7.
