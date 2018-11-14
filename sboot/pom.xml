@@ -24,9 +24,11 @@
     </dependencyManagement>
 
     <properties>
+        <spring-framework-version>4.3.6.RELEASE</spring-framework-version>
         <spring-boot-starter-version>1.5.7.RELEASE</spring-boot-starter-version>
         <postgresql.version>42.0.0</postgresql.version>
         <java-version>1.8</java-version>
+        <junit-version>4.12</junit-version>
     </properties>
 
     <dependencies>
@@ -58,9 +60,29 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <version>${spring-boot-starter-version}</version>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring-framework-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit-version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
