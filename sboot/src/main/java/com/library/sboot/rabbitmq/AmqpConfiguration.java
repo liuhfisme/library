@@ -31,10 +31,12 @@ public class AmqpConfiguration {
     }
 
     //绑定
+    @Bean
     public Binding binding1() {
         return BindingBuilder.bind(queue1()).to(topicExchange()).with("key.1");
     }
 
+    @Bean
     public Binding binding2() {
         return BindingBuilder.bind(queue2()).to(topicExchange()).with("key.#");
     }

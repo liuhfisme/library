@@ -1,0 +1,16 @@
+# 版本信息
+FROM docker.io/rabbitmq:3.7.8
+
+# 维护者信息
+MAINTAINER feifei.liu feifei.work@foxmail.com
+
+# 标签信息
+LABEL library-rabbitmq="3.7.8"
+
+RUN rabbitmq-plugins enable --offline rabbitmq_mqtt rabbitmq_federation_management rabbitmq_management rabbitmq_stomp
+
+## 创建镜像
+# docker build -t library/rabbitmq:3.7.8 .
+
+## 启动容器
+# docker run -d --name library-rabbitmq -p 5672:5672 -p 15672:15672 -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin library-rabbitmq:3.7.8
