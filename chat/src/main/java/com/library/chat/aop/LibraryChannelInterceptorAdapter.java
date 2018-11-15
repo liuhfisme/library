@@ -51,7 +51,7 @@ public class LibraryChannelInterceptorAdapter extends ChannelInterceptorAdapter 
         StompCommand command = accessor.getCommand();
         if (StompCommand.SUBSCRIBE.equals(command)) {
             logger.info(this.getClass().getCanonicalName()+" 订阅消息发送成功");
-            this.simpMessagingTemplate.convertAndSend("/topic/getResponse", "消息发送成功");
+            this.simpMessagingTemplate.convertAndSend("/topic/getResponse", "{'msg':'订阅成功'}");
         }
         //如果用户断开连接
         if (StompCommand.DISCONNECT.equals(command)) {
