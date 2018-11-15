@@ -38,6 +38,6 @@ public class AmqpConfiguration {
 
     @Bean
     public Binding binding2() {
-        return BindingBuilder.bind(queue2()).to(topicExchange()).with("key.#");
+        return BindingBuilder.bind(queue2()).to(topicExchange()).with("key.2");
     }
 }
