@@ -15,32 +15,34 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @ClassName: BroadcastSingleCtl
+ * @ClassName: BroadcastRabbitmqCtl
  * @Description: TODO
  * @author feifei.liu
- * @date 2018/11/15 17:10
+ * @date 2018/11/16 11:22
  */
 @Controller
-public class BroadcastSingleCtl {
-    private static final Logger logger = LoggerFactory.getLogger(BroadcastSingleCtl.class);
+public class BroadcastRabbitmqCtl {
+    private static final Logger logger = LoggerFactory.getLogger(BroadcastRabbitmqCtl.class);
 
     //收到消息计数
     private AtomicInteger count = new AtomicInteger(0);
 
-    @MessageMapping("/receive-single")
+    @MessageMapping("/receive-rabbitmq")
     @SendToUser("/topic/getResponse")
     public ResponseMessage boradcast(RequestMessage requestMessage) {
         logger.info("receive message = {}", JSONObject.toJSONString(requestMessage));
         ResponseMessage responseMessage = new ResponseMessage();
-        responseMessage.setResponseMessage("BroadcastSingleCtl receive ["+count.incrementAndGet()+"] records");
+        responseMessage.setResponseMessage("BroadcastRabbitmqCtl receive ["+count.incrementAndGet()+"] records");
         return responseMessage;
     }
 
-    @RequestMapping(value = "/broadcast-single/index")
+
+
+
+    @RequestMapping(value = "/broadcast-rabbitmq/index")
     public ModelAndView broadcastIndex(ModelAndView mav, HttpServletRequest req) {
         logger.info("remoteHost："+req.getRemoteHost());
-        mav.setViewName("/websocket/simple/ws-broadcast-single");
+        mav.setViewName("/websocket/simple/ws-broadcast-rabbitmq");
         return mav;
     }
-
 }
