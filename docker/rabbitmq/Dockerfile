@@ -13,4 +13,4 @@ RUN rabbitmq-plugins enable --offline rabbitmq_mqtt rabbitmq_federation_manageme
 # docker build -t library/rabbitmq:3.7.8 .
 
 ## 启动容器
-# docker run -d --name library-rabbitmq -p 5672:5672 -p 15672:15672 -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin library-rabbitmq:3.7.8
+# docker run -d --name library-rabbitmq -p 5672:5672 -p 15672:15672 -p 25672:25672 -p 15674:15674 -p 1883:1883 -p 61613:61613 -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin library-rabbitmq:3.7.8
