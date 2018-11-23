@@ -40,7 +40,7 @@ public class CommonAPI {
     }
 
     @PostMapping(value = "/add")
-    public boolean add(@AuthenticationPrincipal UserPrincipal userPrincipal, @RequestParam String friendName) {
-        return  relationService.addFriend(userPrincipal.getUsername(), friendName);
+    public boolean add(@AuthenticationPrincipal UserPrincipal userPrincipal, @RequestParam String friend) {
+        return  relationService.addFriend(userPrincipal.getUsername(), friend);
     }
 }
