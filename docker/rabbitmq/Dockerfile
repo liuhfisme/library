@@ -7,7 +7,7 @@ MAINTAINER feifei.liu feifei.work@foxmail.com
 # 标签信息
 LABEL library-rabbitmq="3.7.8"
 
-RUN rabbitmq-plugins enable --offline rabbitmq_mqtt rabbitmq_federation_management rabbitmq_management rabbitmq_stomp
+RUN rabbitmq-plugins enable --offline rabbitmq_mqtt rabbitmq_federation_management rabbitmq_management rabbitmq_stomp rabbitmq_web_stomp
 
 ## 创建镜像
 # docker build -t library/rabbitmq:3.7.8 .

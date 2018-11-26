@@ -14,7 +14,6 @@
         <module>game</module>
         <module>quartz</module>
         <module>scheduler</module>
-        <module>scloud</module>
         <module>chat</module>
     </modules>
     <packaging>pom</packaging>
