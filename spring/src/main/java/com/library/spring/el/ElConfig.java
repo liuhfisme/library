@@ -16,7 +16,7 @@ import org.springframework.core.io.Resource;
  */
 @Configuration
 @ComponentScan("com.library.spring.el")
-@PropertySource("classpath:com/library/library/spring/el/demo.properties") //使用@PropertySource注入配置文件
+@PropertySource("classpath:com/library/spring/el/demo.properties") //使用@PropertySource注入配置文件
 public class ElConfig {
     @Value("I Love You！") //注入普通字符
     private String normal;
@@ -30,7 +30,7 @@ public class ElConfig {
     @Value("#{demoService.another}") //输入其它Bean属性
     private String fromAnother;
 
-    @Value("classpath:com/library/library/spring/el/demo.txt") //输入文件资源
+    @Value("classpath:com/library/spring/el/demo.txt") //输入文件资源
     private Resource demoFile;
 
     @Value("http://www.baidu.com") //注入网址资源
