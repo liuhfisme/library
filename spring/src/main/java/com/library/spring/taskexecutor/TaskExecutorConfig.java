@@ -16,7 +16,7 @@ import java.util.concurrent.Executor;
 @ComponentScan("com.library.spring.taskexecutor")
 @EnableAsync //开启异步任务支持
 public class TaskExecutorConfig implements AsyncConfigurer {
-    @Override
+
     public Executor getAsyncExecutor() {
         ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
         taskExecutor.setCorePoolSize(5);
@@ -26,7 +26,6 @@ public class TaskExecutorConfig implements AsyncConfigurer {
         return taskExecutor;
     }
 
-    @Override
     public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
         return null;
     }
