@@ -26,7 +26,7 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter{
 
     @Override
     protected void configure(HttpSecurity http) throws  Exception {
-        http.authorizeRequests().antMatchers("/", "/webjars/**", "/register", "/api/common/**", "/image/**").permitAll()
+        http.authorizeRequests().antMatchers("/", "/pub/**", "/webjars/**", "/register", "/api/common/**", "/image/**").permitAll()
                 .anyRequest().authenticated().and().formLogin().loginPage("/login").defaultSuccessUrl("/chat", true)
                 .permitAll().and().logout().permitAll().and().csrf().disable();
     }

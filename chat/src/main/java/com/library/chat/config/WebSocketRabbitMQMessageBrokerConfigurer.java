@@ -84,7 +84,6 @@ public class WebSocketRabbitMQMessageBrokerConfigurer extends AbstractWebSocketM
     @Override
     public void configureWebSocketTransport(final WebSocketTransportRegistration registration) {
         registration.addDecoratorFactory(new WebSocketHandlerDecoratorFactory() {
-            @Override
             public WebSocketHandler decorate(final WebSocketHandler handler) {
                 return new WebSocketHandlerDecorator(handler) {
                     @Override

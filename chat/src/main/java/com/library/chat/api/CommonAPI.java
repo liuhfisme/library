@@ -43,4 +43,6 @@ public class CommonAPI {
     public boolean add(@AuthenticationPrincipal UserPrincipal userPrincipal, @RequestParam String friend) {
         return  relationService.addFriend(userPrincipal.getUsername(), friend);
     }
+
+
 }
