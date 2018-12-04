@@ -1,6 +1,6 @@
 package com.library.chat.ctl;
 
-import com.library.chat.config.security.UserPrincipal;
+import com.library.chat.core.config.security.UserPrincipal;
 import com.library.chat.model.User;
 import com.library.chat.service.RelationService;
 import org.springframework.beans.factory.annotation.Autowired;

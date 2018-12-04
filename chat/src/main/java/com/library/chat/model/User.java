@@ -1,7 +1,10 @@
 package com.library.chat.model;
 
+import com.library.chat.core.config.jpa.entity.IdJpaEntity;
 import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Date;
 
 /**
@@ -13,7 +16,9 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @ToString
-public class User {
+@Entity
+@Table(name = "s_user")
+public class User extends IdJpaEntity {
     private String username; //用户名
     private String password; //密码
     private String nickname; //昵称

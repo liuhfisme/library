@@ -1,4 +1,4 @@
-package com.library.chat.aop;
+package com.library.chat.core.aop;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

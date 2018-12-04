@@ -1,4 +1,4 @@
-package com.library.chat.config.security;
+package com.library.chat.core.config.security;
 
 import com.library.chat.model.User;
 import com.library.chat.service.UserService;

@@ -1,11 +1,10 @@
-package com.library.chat.config;
+package com.library.chat.core.config;
 
-import com.library.chat.aop.LibraryChannelInterceptorAdapter;
-import com.library.chat.aop.LibraryHandShakeInterceptor;
+import com.library.chat.core.aop.LibraryChannelInterceptorAdapter;
+import com.library.chat.core.aop.LibraryHandShakeInterceptor;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.messaging.simp.config.ChannelRegistration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.web.socket.CloseStatus;
@@ -29,10 +28,10 @@ import org.springframework.web.socket.handler.WebSocketHandlerDecoratorFactory;
 @Log4j
 public class WebSocketRabbitMQMessageBrokerConfigurer extends AbstractWebSocketMessageBrokerConfigurer { //// 此注解开使用STOMP协议来传输基于消息代理的消息，此时可以在@Controller类中使用@MessageMapping
     @Autowired
-    private LibraryHandShakeInterceptor handShakeInterceptor;
+    private LibraryHandShakeInterceptor libraryHandShakeInterceptor;
 
     @Autowired
-    private LibraryChannelInterceptorAdapter channelInterceptorAdapter;
+    private LibraryChannelInterceptorAdapter libraryChannelInterceptorAdapter;
 
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         /*
@@ -43,20 +42,20 @@ public class WebSocketRabbitMQMessageBrokerConfigurer extends AbstractWebSocketM
 //        registry.addEndpoint("/websocket-rabbitmq").withSockJS();
         registry.addEndpoint("/websocket-simple")
                 .setAllowedOrigins("*") //添加允许跨域访问
-                .addInterceptors(handShakeInterceptor) //添加自定义拦截
+                .addInterceptors(libraryHandShakeInterceptor) //添加自定义拦截
                 .withSockJS();
         registry.addEndpoint("/websocket-simple-single")
                 .setAllowedOrigins("*") //添加允许跨域访问
-                .addInterceptors(handShakeInterceptor) //添加自定义拦截
+                .addInterceptors(libraryHandShakeInterceptor) //添加自定义拦截
                 .withSockJS();
         registry.addEndpoint("//websocket-simple-rabbitmq")
                 .setAllowedOrigins("*") //添加允许跨域访问
-                .addInterceptors(handShakeInterceptor) //添加自定义拦截
+                .addInterceptors(libraryHandShakeInterceptor) //添加自定义拦截
                 .withSockJS();
 
         registry.addEndpoint("/any-socket")
                 .setAllowedOrigins("*") //添加允许跨域访问
-                .addInterceptors(handShakeInterceptor) //添加自定义拦截
+                .addInterceptors(libraryHandShakeInterceptor) //添加自定义拦截
                 .withSockJS();
     }
 
@@ -67,7 +66,7 @@ public class WebSocketRabbitMQMessageBrokerConfigurer extends AbstractWebSocketM
          * 使用RabbitMQ做为消息代理，替换默认的Simple Broker
          */
         registry.enableStompBrokerRelay("/exchange","/topic","/queue","/amq/queue","reply-queue") // "STOMP broker relay"处理所有消息将消息发送到外部的消息代理
-                .setRelayHost("192.168.20.201")
+                .setRelayHost("192.168.19.201")
                 .setClientLogin("admin").setClientPasscode("admin")
                 .setSystemLogin("admin").setSystemPasscode("admin")
                 .setSystemHeartbeatSendInterval(5000)
@@ -77,7 +76,7 @@ public class WebSocketRabbitMQMessageBrokerConfigurer extends AbstractWebSocketM
 
     @Override
     public void configureClientInboundChannel(ChannelRegistration registration) {
-        ChannelRegistration channelRegistration = registration.setInterceptors(channelInterceptorAdapter);
+        ChannelRegistration channelRegistration = registration.setInterceptors(libraryChannelInterceptorAdapter);
         super.configureClientInboundChannel(channelRegistration);
     }
 

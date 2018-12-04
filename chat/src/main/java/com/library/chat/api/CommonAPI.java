@@ -1,6 +1,6 @@
 package com.library.chat.api;
 
-import com.library.chat.config.security.UserPrincipal;
+import com.library.chat.core.config.security.UserPrincipal;
 import com.library.chat.model.User;
 import com.library.chat.service.RelationService;
 import com.library.chat.service.UserService;
