@@ -29,9 +29,24 @@ public class PubCtl {
     @RequestMapping("/send")
     @ResponseBody
     public String send(String message){
-        template.convertAndSend("/topic/notice", "我是通知类消息："+message);
+//        template.convertAndSend("/topic/notice", "我是通知类消息："+message);
+        template.convertAndSend("/queue/15311978870", "我是指定类消息："+message);
 //        template.convertAndSendToUser("4028838765d0c6cd0165d0fdb8000002","/topic/chat", "我是指定消息");
         template.convertAndSendToUser("15311978870","/topic/chat", "我是指定类消息："+message);
         return HttpStatus.OK.toString();
+    }
+
+    /**
+     * @Title: message
+     * @Description: 测试消息
+     * @Param [mav]
+     * @return org.springframework.web.servlet.ModelAndView
+     * @author feifei.liu
+     * @date 2018/12/5 14:30
+     */
+    @RequestMapping("/message")
+    public ModelAndView message(ModelAndView mav) {
+        mav.setViewName("/pub/message");
+        return mav;
     }
 }

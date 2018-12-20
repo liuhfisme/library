@@ -26,5 +26,9 @@ public class StringEqual {
          * 字符串的 + 操作其本质是创建了StringBuilder对象进行append操作，然后将拼接后的StringBuilder对象用toString()方法处理成String对象，
          * 这一点可以用javap -c StringEqualTest.class 命令获得class文件对应的JVM字节码指令就可以看出来
          */
+
+        String sa = "ab";
+        String sb = "ab";
+        System.out.println(sa.equals(sb));
     }
 }

@@ -66,7 +66,7 @@ public class WebSocketRabbitMQMessageBrokerConfigurer extends AbstractWebSocketM
          * 使用RabbitMQ做为消息代理，替换默认的Simple Broker
          */
         registry.enableStompBrokerRelay("/exchange","/topic","/queue","/amq/queue","reply-queue") // "STOMP broker relay"处理所有消息将消息发送到外部的消息代理
-                .setRelayHost("192.168.19.201")
+                .setRelayHost("192.168.20.201")
                 .setClientLogin("admin").setClientPasscode("admin")
                 .setSystemLogin("admin").setSystemPasscode("admin")
                 .setSystemHeartbeatSendInterval(5000)

@@ -15,6 +15,7 @@
         <module>quartz</module>
         <module>scheduler</module>
         <module>chat</module>
+        <module>scloud</module>
     </modules>
     <packaging>pom</packaging>
 
