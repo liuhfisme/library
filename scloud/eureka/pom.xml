@@ -16,13 +16,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>sc-eureka-server-a</module>
-        <module>sc-eureka-service-provider-a</module>
-        <module>sc-eureka-service-invoker</module>
         <module>sce-cloud-server</module>
         <module>sce-cloud-provider</module>
         <module>sce-cloud-invoker</module>
-        <module>health-handler-server</module>
     </modules>
 
     <properties>
