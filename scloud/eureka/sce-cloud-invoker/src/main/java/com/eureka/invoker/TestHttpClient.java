@@ -24,5 +24,7 @@ public class TestHttpClient {
             HttpResponse response = httpClient.execute(httpGet);
             System.out.println(EntityUtils.toString(response.getEntity()));
         }
+
+        System.out.println(1 << 4);
     }
 }
