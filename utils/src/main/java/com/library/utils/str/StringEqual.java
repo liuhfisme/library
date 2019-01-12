@@ -30,5 +30,9 @@ public class StringEqual {
         String sa = "ab";
         String sb = "ab";
         System.out.println(sa.equals(sb));
+
+        Integer.valueOf("0");
+        Long l1 = null;
+        long l2 = l1+1;
     }
 }

@@ -2,6 +2,7 @@ package com.library.scheduler.core.config.support;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.stereotype.Component;
 
 /**
@@ -18,6 +19,7 @@ public class SpringContextUtil implements ApplicationContextAware {
     /**
      * 实现ApplicationContextAware接口的context注入函数, 将其存入静态变量.
      */
+    @Override
     public void setApplicationContext(ApplicationContext applicationContext) {
         SpringContextUtil.applicationContext = applicationContext; // NOSONAR
     }
@@ -52,7 +54,8 @@ public class SpringContextUtil implements ApplicationContextAware {
      * 清除applicationContext静态变量.
      */
     public static void cleanApplicationContext() {
-        applicationContext = null;
+        AbstractApplicationContext abstractContext = (AbstractApplicationContext) applicationContext;
+        abstractContext.close();
     }
 
     private static void checkApplicationContext() {
