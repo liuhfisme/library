@@ -1,0 +1,12 @@
+package com.mine.valid.constant;
+
+/**
+ * 参数验证常量类.
+ *
+ * @author liufeifei02@beyondsoft.com
+ * @version 1.0
+ * @date 2019-01-17
+ */
+public interface ValidConstant {
+    String IS_NULL = "is null";
+}
