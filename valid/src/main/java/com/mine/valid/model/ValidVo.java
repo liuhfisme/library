@@ -4,15 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * 参数验证Vo.
+ * 参数校验返回VO.
  *
  * @author liufefei02@beyondsoft.com
  * @version 1.0
- * @date 2019-01-17
+ * @date 2019-01-18
  */
 @Data
 @AllArgsConstructor
 public class ValidVo {
-    private String code;
-    private String msg;
+    private String fieldName;
+    private String failureMsg;
 }

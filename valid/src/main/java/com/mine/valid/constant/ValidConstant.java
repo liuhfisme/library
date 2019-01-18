@@ -9,4 +9,5 @@ package com.mine.valid.constant;
  */
 public interface ValidConstant {
     String IS_NULL = "is null";
+    String EMAIL_FAILURE_MSG = "is not a valid email address";
 }

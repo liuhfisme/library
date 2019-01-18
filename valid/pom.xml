@@ -24,7 +24,7 @@
     </build>
 
     <properties>
-        <spring-boot-starter-version>1.5.7.RELEASE</spring-boot-starter-version>
+        <spring-boot-starter-version>2.0.6.RELEASE</spring-boot-starter-version>
     </properties>
 
     <dependencyManagement>
