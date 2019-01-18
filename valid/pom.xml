@@ -50,6 +50,11 @@
             <version>${spring-boot-starter-version}</version>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>com.mine</groupId>
+            <artifactId>valid</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>
