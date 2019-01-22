@@ -31,7 +31,6 @@ public class ControllerAdvice {
     public ResponseData exception(Exception exception) {
         //参数校验异常
         if (exception instanceof MethodArgumentNotValidException) {
-            System.out.println(exception.getMessage());
             MethodArgumentNotValidException validException = (MethodArgumentNotValidException) exception;
             BindingResult bindingResult = validException.getBindingResult();
             List<FieldError> errors = bindingResult.getFieldErrors();

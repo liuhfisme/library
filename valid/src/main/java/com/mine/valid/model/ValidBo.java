@@ -1,17 +1,15 @@
 package com.mine.valid.model;
 
-import com.mine.valid.constant.ValidConstant;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
-import java.util.List;
 
 /**
  * 后台参数验证Bo.
@@ -32,7 +30,7 @@ public class ValidBo {
     /**
      * 字符长度校验
      */
-    @Min(10) @Max(20)
+    @Length(min = 10, max = 20)
     private String name;
 
     /**

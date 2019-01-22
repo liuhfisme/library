@@ -16,6 +16,7 @@
         <module>scheduler</module>
         <module>chat</module>
         <module>scloud</module>
+        <module>valid</module>
     </modules>
     <packaging>pom</packaging>
 
