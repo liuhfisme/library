@@ -19,10 +19,14 @@ import java.util.concurrent.TimeUnit;
 public class RedisDistributionLock {
     private static final Logger log = LoggerFactory.getLogger(RedisDistributionLock.class);
 
-    //key的TTL， 一天
+    /**
+     * key的TTL， 一天
+     */
     private static final int DEFAULT_TTL_WITH_KEY = 24 * 3600;
 
-    //锁默认超时时间，20秒
+    /**
+     * 锁默认超时时间，20秒
+     */
     private static final long DEFAULT_EXPIRE_TIME = 20 * 1000;
 
     private static final boolean SUCCESS = true;

@@ -1,5 +1,6 @@
 package com.mine.valid.model;
 
+import com.mine.valid.support.custom.MobilePhone;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
@@ -50,6 +51,9 @@ public class ValidBo {
 
     @Email
     private String email;
+
+    @MobilePhone
+    private String phone;
 
 
 }
