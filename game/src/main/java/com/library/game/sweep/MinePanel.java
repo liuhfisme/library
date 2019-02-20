@@ -125,7 +125,8 @@ public class MinePanel extends JPanel implements ActionListener{
         return numb;  
     }  
   
-    public void actionPerformed(ActionEvent e) {  
+    @Override
+    public void actionPerformed(ActionEvent e) {
         MineButton b=(MineButton)e.getSource();  
         int r=b.getRow();  
         int c=b.getCol();  

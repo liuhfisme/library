@@ -1,4 +1,4 @@
-package com.library.game.demo.jdbc;
+package com.library.utils.algorithm.jdbc;
 
 import java.math.BigDecimal;
 import java.sql.Connection;

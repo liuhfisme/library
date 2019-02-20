@@ -1,4 +1,4 @@
-package com.library.game.demo.apriori;
+package com.library.utils.algorithm.apriori;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

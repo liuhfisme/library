@@ -1,4 +1,4 @@
-package com.library.game.demo.apriori1;
+package com.library.utils.algorithm.apriori1;
 
 import java.io.File;
 import java.io.IOException;

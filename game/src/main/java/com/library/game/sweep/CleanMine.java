@@ -6,22 +6,42 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CleanMine extends JFrame implements ActionListener{
-	public static int result,showNumb;//result表示标记是雷的个数，而showNumb表示点开的个数  
-    private boolean isFirst = true;//设置必须点击新游戏才能开始游戏  
-    private JLabel jlbtime,jlbremain;  
-    public static JLabel time;//时间  
-    public static JLabel remainMine;//剩余雷的个数  
-    private JButton start;  
-    private JPanel jpane;  
-    public static int row,col,mineNumber;//雷的排列，行和列，以及雷的总个数  
-    private Dimension dim;  
-    private JRadioButtonMenuItem[] difficult;//菜单项  
-      
+    /**
+     * result表示标记是雷的个数，而showNumb表示点开的个数
+     */
+	public static int result,showNumb;
+    /**
+     * 设置必须点击新游戏才能开始游戏
+     */
+    private boolean isFirst = true;
+    private JLabel jlbtime,jlbremain;
+    /**
+     * 时间
+     */
+    public static JLabel time;
+    /**
+     * 剩余雷的个数
+     */
+    public static JLabel remainMine;
+    private JButton start;
+    private JPanel jpane;
+    /**
+     * 雷的排列，行和列，以及雷的总个数
+     */
+    public static int row,col,mineNumber;
+    private Dimension dim;
+    /**
+     * 菜单项
+     */
+    private JRadioButtonMenuItem[] difficult;
+
     public CleanMine(){  
         super("扫雷");  
-        dim=this.getToolkit().getScreenSize();//获取屏幕分辨率  
-        this.setLocation(dim.width*2/5, dim.height/3);//设置位置，根据难易程度做出人性化变动  
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);  
+        //获取屏幕分辨率
+        dim=this.getToolkit().getScreenSize();
+        //设置位置，根据难易程度做出人性化变动
+        this.setLocation(dim.width*2/5, dim.height/3);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         addMenu();  
         jlbremain=new JLabel("剩余地雷：");  
         time=new JLabel("10");  
@@ -80,7 +100,8 @@ public class CleanMine extends JFrame implements ActionListener{
     public static void main(String[] args){  
         new CleanMine();  
     }  
-      
+
+    @Override
     public void actionPerformed(ActionEvent e) {  
         if(e.getActionCommand().equalsIgnoreCase("new")){  
             this.result=0;  

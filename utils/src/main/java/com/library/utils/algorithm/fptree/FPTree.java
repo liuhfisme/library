@@ -1,4 +1,4 @@
-package com.library.game.demo.fptree;
+package com.library.utils.algorithm.fptree;
 
 import java.io.BufferedReader;
 import java.io.File;

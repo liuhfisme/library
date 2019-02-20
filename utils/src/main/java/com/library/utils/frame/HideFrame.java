@@ -1,4 +1,4 @@
-package com.library.game.demo;
+package com.library.utils.frame;
 
 import java.awt.Point;
 import java.awt.Rectangle;
