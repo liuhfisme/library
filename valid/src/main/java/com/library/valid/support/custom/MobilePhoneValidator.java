@@ -1,4 +1,4 @@
-package com.mine.valid.support.custom;
+package com.library.valid.support.custom;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

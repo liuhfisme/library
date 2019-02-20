@@ -1,7 +1,7 @@
-package com.mine.valid.support;
+package com.library.valid.support;
 
-import com.mine.valid.model.ResponseData;
-import com.mine.valid.model.ValidVo;
+import com.library.valid.model.ResponseData;
+import com.library.valid.model.ValidVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;

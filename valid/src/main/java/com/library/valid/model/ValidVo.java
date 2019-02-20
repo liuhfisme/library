@@ -1,4 +1,4 @@
-package com.mine.valid.model;
+package com.library.valid.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

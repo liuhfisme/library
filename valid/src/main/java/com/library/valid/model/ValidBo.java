@@ -1,6 +1,6 @@
-package com.mine.valid.model;
+package com.library.valid.model;
 
-import com.mine.valid.support.custom.MobilePhone;
+import com.library.valid.support.custom.MobilePhone;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 

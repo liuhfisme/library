@@ -8,7 +8,7 @@
  * persons other than Beyondsoft Corporation is strictly prohibited and may violate applicable laws.
  */
 
-package com.mine.valid.model;
+package com.library.valid.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

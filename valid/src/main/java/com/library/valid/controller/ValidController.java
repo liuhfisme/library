@@ -1,7 +1,7 @@
-package com.mine.valid.controller;
+package com.library.valid.controller;
 
-import com.mine.valid.model.ResponseData;
-import com.mine.valid.model.ValidBo;
+import com.library.valid.model.ResponseData;
+import com.library.valid.model.ValidBo;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;

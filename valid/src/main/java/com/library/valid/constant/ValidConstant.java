@@ -1,4 +1,4 @@
-package com.mine.valid.constant;
+package com.library.valid.constant;
 
 /**
  * 参数验证常量类.
