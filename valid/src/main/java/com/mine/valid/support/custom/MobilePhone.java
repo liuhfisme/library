@@ -31,7 +31,7 @@ public @interface MobilePhone {
     @Target({ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR, ElementType.PARAMETER, ElementType.TYPE_USE})
     @Retention(RetentionPolicy.RUNTIME)
     @Documented
-    public @interface List {
+    @interface List {
         MobilePhone[] value();
     }
 }
