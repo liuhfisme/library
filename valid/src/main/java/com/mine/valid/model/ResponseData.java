@@ -10,6 +10,9 @@
 
 package com.mine.valid.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -20,7 +23,8 @@ import java.util.ArrayList;
  * @version: 1.0
  * @author: robin.luo@beyondsoft.com
  */
-
+@Data
+@NoArgsConstructor
 public class ResponseData<T> implements Serializable {
 
     private static final long serialVersionUID = 3641988897219827606L;
@@ -29,8 +33,6 @@ public class ResponseData<T> implements Serializable {
     private String messageInfo = "";
     private T data;
 
-    public ResponseData() {
-    }
     private ResponseData(T data) {
         this.data = data;
     }
@@ -55,38 +57,6 @@ public class ResponseData<T> implements Serializable {
         ResponseData<T> responseData = new ResponseData<T>(code, message, errorInfo);
         responseData.setData(data);
         return responseData;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMessageKey() {
-        return messageKey;
-    }
-
-    public void setMessageKey(String messageKey) {
-        this.messageKey = messageKey;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    public String getMessageInfo() {
-        return messageInfo;
-    }
-
-    public void setMessageInfo(String messageInfo) {
-        this.messageInfo = messageInfo;
     }
 
 }
