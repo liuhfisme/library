@@ -60,6 +60,7 @@ public class CustomRepositoryImpl<T, ID extends Serializable> extends SimpleJpaR
      * @author feifei.liu
      * @date 2016年8月14日 下午4:06:56
      */
+    @Override
     public Object findOne(Class<?> entityClass, Object primaryKey) {
         return em.find(entityClass, primaryKey);
     }
@@ -141,6 +142,7 @@ public class CustomRepositoryImpl<T, ID extends Serializable> extends SimpleJpaR
      * @author feifei.liu
      * @date 2016年6月2日 下午1:49:07
      */
+    @Override
     public Query createNativeQuery(String sqlString) {
         return em.createNativeQuery(sqlString);
     }
@@ -181,6 +183,7 @@ public class CustomRepositoryImpl<T, ID extends Serializable> extends SimpleJpaR
      * @author feifei.liu
      * @date 2016年6月1日 下午9:23:18
      */
+    @Override
     public StoredProcedureQuery createStoredProcedureQuery(String procedureName){
         return em.createStoredProcedureQuery(procedureName);
     }
