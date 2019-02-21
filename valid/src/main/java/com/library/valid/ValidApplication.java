@@ -11,10 +11,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2019-01-17
  */
 @SpringBootApplication
-public class WebApplication {
+public class ValidApplication {
 
     public static void main(String[] args) {
-        SpringApplication application = new SpringApplication(WebApplication.class);
+        SpringApplication application = new SpringApplication(ValidApplication.class);
         application.run(args);
     }
 }
