@@ -2,6 +2,7 @@ package com.eureka.invoker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -13,7 +14,14 @@ import org.springframework.web.client.RestTemplate;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
+/**
+ * Feign
+ */
 @EnableFeignClients
+/**
+ * Hystrix
+ */
+@EnableCircuitBreaker
 public class InvokerApplication {
     public static void main(String[] args) {
         SpringApplication.run(InvokerApplication.class, args);
