@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @ClassName: MyRule
- * @Description: TODO
+ * @Description: 自定义 Ribbon 负载均衡规则
  * @author feifei.liu
  * @date 2018/12/28 17:01
  */
@@ -25,21 +25,21 @@ public class MyRule implements IRule {
         return servers.get(0);
     }
 
-    @Override
-    public void setLoadBalancer(ILoadBalancer iLoadBalancer) {
+    public MyRule() {
+    }
 
+    public MyRule(ILoadBalancer lb) {
+        this.lb = lb;
+    }
+
+    @Override
+    public void setLoadBalancer(ILoadBalancer lb) {
+        this.lb = lb;
     }
 
     @Override
     public ILoadBalancer getLoadBalancer() {
-        return null;
+        return this.lb;
     }
 
-    public ILoadBalancer getLb() {
-        return lb;
-    }
-
-    public void setLb(ILoadBalancer lb) {
-        this.lb = lb;
-    }
 }

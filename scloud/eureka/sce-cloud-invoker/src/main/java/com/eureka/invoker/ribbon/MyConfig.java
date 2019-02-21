@@ -4,6 +4,7 @@ import com.netflix.loadbalancer.IPing;
 import com.netflix.loadbalancer.IRule;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @ClassName: MyConfig
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Bean;
  * @author feifei.liu
  * @date 2018/12/28 17:05
  */
+@Configuration
 public class MyConfig {
     @Bean
     public IRule getRule() {

@@ -12,9 +12,9 @@ import org.springframework.web.client.RestTemplate;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-public class EurekaCloudServiceInvokerApplication {
+public class InvokerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(EurekaCloudServiceInvokerApplication.class, args);
+        SpringApplication.run(InvokerApplication.class, args);
     }
 
     @Bean
