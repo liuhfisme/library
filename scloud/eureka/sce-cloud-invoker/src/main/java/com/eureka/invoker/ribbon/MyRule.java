@@ -3,6 +3,7 @@ package com.eureka.invoker.ribbon;
 import com.netflix.loadbalancer.ILoadBalancer;
 import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.Server;
+import com.netflix.loadbalancer.ZoneAvoidanceRule;
 
 import java.util.List;
 
@@ -12,8 +13,9 @@ import java.util.List;
  * @author feifei.liu
  * @date 2018/12/28 17:01
  */
-public class MyRule implements IRule {
+public class MyRule extends ZoneAvoidanceRule implements IRule {
     private ILoadBalancer lb;
+
 
     @Override
     public Server choose(Object key) {
@@ -22,7 +24,7 @@ public class MyRule implements IRule {
         for (Server s: servers) {
             System.out.println("    "+ s.getHostPort());
         }
-        return servers.get(0);
+        return super.choose(key);
     }
 
     public MyRule() {
