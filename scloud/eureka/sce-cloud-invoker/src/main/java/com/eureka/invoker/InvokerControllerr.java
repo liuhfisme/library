@@ -40,7 +40,7 @@ public class InvokerControllerr {
             log.info("invoker debug, status. appName:[{}], instanceId:[{}], status:[{}]", info.getAppName(), info.getInstanceId(), info.getStatus());
         }
         //根据应用名称调用服务
-        String json = restTemplate.getForObject( "http://eureka-cloud-service-provider/hello", String.class);
+        String json = restTemplate.getForObject( "http://eureka-service-provider/hello", String.class);
         return json;
     }
 

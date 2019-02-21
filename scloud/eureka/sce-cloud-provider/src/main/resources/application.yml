@@ -2,11 +2,11 @@ server:
   port: 8801
 spring:
   application:
-    name: eureka-cloud-service-provider
+    name: eureka-service-provider
   profiles: slave1
 eureka:
   instance:
-    hostname: slave1
+    hostname: localhost
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
@@ -18,11 +18,11 @@ server:
   port: 8802
 spring:
   application:
-    name: eureka-cloud-service-provider
+    name: eureka-service-provider
   profiles: slave2
 eureka:
   instance:
-    hostname: slave2
+    hostname: localhost
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/

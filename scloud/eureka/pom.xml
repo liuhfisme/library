@@ -20,6 +20,7 @@
         <module>sce-cloud-provider</module>
         <module>sce-cloud-invoker</module>
         <module>sce-cloud-security</module>
+        <module>sce-cloud-gateway</module>
     </modules>
 
     <properties>
@@ -50,6 +51,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

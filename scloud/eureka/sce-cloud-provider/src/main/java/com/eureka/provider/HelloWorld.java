@@ -1,4 +1,4 @@
-package com.eureka.service;
+package com.eureka.provider;
 
 /**
  * Created by Administrator on 2018/10/17.

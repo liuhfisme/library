@@ -1,0 +1,22 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: eureka-gateway
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+zuul:
+  routes:
+    routeTest:
+      path: /routeTest/163
+      url: http://www.163.com
+    book:
+      path: /book/**
+      service-id: eureka-service-provider
+    sale:
+      path: /sale/**
+      service-id: eureka-service-invoker

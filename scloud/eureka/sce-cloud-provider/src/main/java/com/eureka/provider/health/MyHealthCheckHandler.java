@@ -1,4 +1,4 @@
-package com.eureka.service.health;
+package com.eureka.provider.health;
 
 import com.netflix.appinfo.HealthCheckHandler;
 import com.netflix.appinfo.InstanceInfo;

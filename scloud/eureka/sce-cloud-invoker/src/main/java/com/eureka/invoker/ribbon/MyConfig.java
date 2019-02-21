@@ -24,7 +24,7 @@ public class MyConfig {
         return new MyPing();
     }
 
-    @RibbonClient(name = "eureka-cloud-service-provider", configuration = MyConfig.class)
+    @RibbonClient(name = "eureka-service-provider", configuration = MyConfig.class)
     public class CloudProviderConfig {
 
     }

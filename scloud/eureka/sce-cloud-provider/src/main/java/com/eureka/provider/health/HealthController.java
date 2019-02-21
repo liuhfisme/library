@@ -1,4 +1,4 @@
-package com.eureka.service.health;
+package com.eureka.provider.health;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
