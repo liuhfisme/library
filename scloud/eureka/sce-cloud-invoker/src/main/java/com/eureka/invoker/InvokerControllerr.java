@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EurekaDiscoveryClient;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,9 +22,12 @@ import java.util.List;
 @RestController
 public class InvokerControllerr {
     private static final Logger log = LoggerFactory.getLogger(InvokerControllerr.class);
-    @Autowired RestTemplate restTemplate;
+    @Autowired
+    RestTemplate restTemplate;
     @Autowired
     DiscoveryClient discoveryClient;
+    @Autowired
+    HelloFeignClient helloFeignClient;
 
     @RequestMapping(value = "/router", method = RequestMethod.GET)
     public String router() {
@@ -38,6 +42,11 @@ public class InvokerControllerr {
         //根据应用名称调用服务
         String json = restTemplate.getForObject( "http://eureka-cloud-service-provider/hello", String.class);
         return json;
+    }
+
+    @RequestMapping(value = "/feign/{name}", method = RequestMethod.GET)
+    public Object feign(@PathVariable("name") String name) {
+        return helloFeignClient.hello(name);
     }
 
     /**
