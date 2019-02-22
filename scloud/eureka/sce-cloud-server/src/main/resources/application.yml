@@ -4,12 +4,18 @@ spring:
   application:
     name: eureka-server
   profiles: slave1
+  # 安全认证的配置
+  security:
+    user:
+      name: admin
+      password: admin
+
 eureka:
   instance:
     hostname: localhost
   client:
     serviceUrl:
-      defaultZone: http://localhost:8762/eureka/
+      defaultZone: http://${REGISTRY_NAME:admin}:${REGISTRY_PASSWORD:admin}@localhost:8762/eureka/
 
 ---
 
@@ -19,9 +25,15 @@ spring:
   application:
     name: eureka-server
   profiles: slave2
+  # 安全认证的配置
+  security:
+    user:
+      name: admin
+      password: admin
+
 eureka:
   instance:
     hostname: localhost
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://${REGISTRY_NAME:admin}:${REGISTRY_PASSWORD:admin}@localhost:8761/eureka/
