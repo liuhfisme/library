@@ -9,3 +9,4 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://${REGISTRY_NAME:admin}:${REGISTRY_PASSWORD:admin}@localhost:8761/eureka/,http://${REGISTRY_NAME:admin}:${REGISTRY_PASSWORD:admin}@localhost:8762/eureka/
+      nstance-info-replication-interval-seconds: 30 #健康自检定时周期（默认30秒）
