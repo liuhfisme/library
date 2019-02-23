@@ -13,7 +13,7 @@
     <artifactId>scloud</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>eureka</module>
+        <module>learn</module>
     </modules>
 
 
