@@ -15,6 +15,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>scc-eureka</module>
+        <module>scc-repository</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -26,6 +27,7 @@
         <spring-boot-starter.version>2.0.6.RELEASE</spring-boot-starter.version>
         <httpclient.version>4.5.6</httpclient.version>
         <lombok.version>1.18.4</lombok.version>
+        <guava.version>20.0</guava.version>
     </properties>
 
     <dependencies>
