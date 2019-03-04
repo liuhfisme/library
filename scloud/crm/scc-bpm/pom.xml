@@ -20,6 +20,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <activiti-dependencies.version>7.1.6</activiti-dependencies.version>
+        <postgresql.version>42.2.5</postgresql.version>
     </properties>
 
     <dependencyManagement>
@@ -51,9 +52,14 @@
             <artifactId>activiti-spring-boot-starter</artifactId>
             <version>${activiti-dependencies.version}</version>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.h2database</groupId>-->
+            <!--<artifactId>h2</artifactId>-->
+        <!--</dependency>-->
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
