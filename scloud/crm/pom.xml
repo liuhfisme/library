@@ -16,6 +16,7 @@
     <modules>
         <module>scc-eureka</module>
         <module>scc-repository</module>
+        <module>scc-bpm</module>
     </modules>
     <packaging>pom</packaging>
 
