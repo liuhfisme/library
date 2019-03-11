@@ -11,8 +11,7 @@ public interface SignConstant {
     /**
      * 签名超时时长，默认时间为5分钟，ms
      */
-//    long EXPIRE_TIME = 5 * 60 * 1000L;
-    long EXPIRE_TIME = 30 * 1000L;
+    long EXPIRE_TIME = 5 * 60 * 1000L;
     String TIMESTAMP_KEY = "timestamp";
     String SIGN_KEY = "sign";
     String SECRET_KEY = "secretKey";
