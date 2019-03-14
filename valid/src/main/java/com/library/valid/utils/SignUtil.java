@@ -33,14 +33,15 @@ public class SignUtil {
     }
 
     /**
-     * APP 生成唯一key&secret
+     * APP 生成唯一secret
+     * <br/> 拱用户申请绑定到租户级别
      * @return
      */
-    public static AppAuth createSecret() {
+    public static String createSecret() {
         UUID uuid = UUID.randomUUID();
         String tempKey = uuid.toString();
         String tempSecret = DigestUtils.md5Hex(SignConstant.SIGN_KEY + tempKey);
-        return new AppAuth(tempKey, tempSecret);
+        return tempSecret;
     }
 
     /**
