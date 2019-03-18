@@ -1,0 +1,15 @@
+cluster.name: "es-cluster"
+node.name: node-data-1
+node.master: false
+node.data: true
+http.port: 9200
+ransport.tcp.port: 9300
+network.host: 0.0.0.0
+#network.publish_host: master-ip
+discovery.zen.ping.unicast.hosts: ["es1"]
+
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+discovery.zen.minimum_master_nodes: 1
+
+xpack.security.enabled: false
