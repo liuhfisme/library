@@ -1,5 +1,6 @@
 cluster.name: "es-cluster"
-node.name: node-data-1
+cluster.routing.allocation.disk.threshold_enabled: false
+node.name: node-slave1
 node.master: false
 node.data: true
 http.port: 9200

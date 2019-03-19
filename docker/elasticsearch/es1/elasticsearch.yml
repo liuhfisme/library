@@ -1,4 +1,5 @@
 cluster.name: "es-cluster"
+cluster.routing.allocation.disk.threshold_enabled: false
 node.name: node-master
 node.master: true
 node.data: true

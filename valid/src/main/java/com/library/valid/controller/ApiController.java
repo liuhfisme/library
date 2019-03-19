@@ -1,5 +1,6 @@
 package com.library.valid.controller;
 
+import com.library.utils.http.HttpRequestUtil;
 import com.library.valid.constant.SignConstant;
 import com.library.valid.model.ResponseData;
 import com.library.valid.model.ValidVo;
@@ -36,15 +37,20 @@ public class ApiController {
     }
     private static void test() {
         long currentMills = System.currentTimeMillis();
-        Map<String,Object> param = new HashMap<>(16);
+        Map<String,String> param = new HashMap<>(16);
         param.put("userId","9527");
         param.put("amount","9.99");
         param.put("productId","9885544154");
         param.put(SignConstant.SECRET_KEY, APP_SECRET);
-        param.put(SignConstant.TIMESTAMP_KEY, currentMills);
+        //param.put(SignConstant.TIMESTAMP_KEY, currentMills+"");
+        param.put(SignConstant.TIMESTAMP_KEY, "1552894475946");
         String sign = SignUtil.createSign(param, APP_SECRET);
-        param.put(SignConstant.SIGN_KEY, sign);
+        //param.put(SignConstant.SIGN_KEY, sign);
+        param.put(SignConstant.SIGN_KEY, "34811C2C61A7A6D953EE6A311254B47C");
         System.out.println(currentMills);
         System.out.println(sign);
+
+        String res = HttpRequestUtil.httpGet("http://localhost:8888/o/payroll/verify", param);
+        System.out.println(res);
     }
 }
