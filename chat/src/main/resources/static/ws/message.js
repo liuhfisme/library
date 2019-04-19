@@ -2,7 +2,7 @@
 /*消息通知*/
 (function ($, window, document, undefined) {
     var QCIM = {
-        host: 'http://192.168.3.7:8080',
+        host: 'http://127.0.0.1:8888',
         frameUrl: '/pub/message',
         client: null,
         init: function () {
