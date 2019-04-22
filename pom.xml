@@ -17,6 +17,7 @@
         <module>chat</module>
         <module>scloud</module>
         <module>valid</module>
+        <module>jenkins</module>
     </modules>
     <packaging>pom</packaging>
 
