@@ -25,7 +25,7 @@ import java.util.Map;
 
 /**
  * Aviator表达式.
- *  参考：https://github.com/killme2008/aviator/wiki
+ * @see [https://github.com/killme2008/aviator/wiki]
  *
  * @author liufefei02@beyondsoft.com
  * @version 1.0
