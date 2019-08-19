@@ -1,0 +1,27 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.library.sboot.authorsettings.AuthorSettings",
+      "name": "author",
+      "type": "com.library.sboot.authorsettings.AuthorSettings"
+    },
+    {
+      "sourceType": "com.library.scheduler.core.quartz.support.QuartzProperty",
+      "name": "quartz",
+      "type": "com.library.scheduler.core.quartz.support.QuartzProperty"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.library.sboot.authorsettings.AuthorSettings",
+      "name": "author.age",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.library.sboot.authorsettings.AuthorSettings",
+      "name": "author.name",
+      "type": "java.lang.String"
+    }
+  ]
+}

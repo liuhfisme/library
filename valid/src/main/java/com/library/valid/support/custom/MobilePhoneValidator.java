@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  *
  * @author liufefei02@beyondsoft.com
  * @version 1.0
- * @date 2019-01-24
+ * @date 2019-day01-24
  */
 public class MobilePhoneValidator implements ConstraintValidator<MobilePhone, CharSequence> {
     private static final String REGEX = "^((17[0-9])|(14[0-9])|(13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$";

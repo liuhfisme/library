@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
  *
  * @author liufefei02@beyondsoft.com
  * @version 1.0
- * @date 2019-01-17
+ * @date 2019-day01-17
  */
 @Documented
 @Constraint(validatedBy = MobilePhoneValidator.class)

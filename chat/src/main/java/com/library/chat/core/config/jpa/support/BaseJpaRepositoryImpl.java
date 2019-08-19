@@ -333,7 +333,7 @@ public class BaseJpaRepositoryImpl<T, ID extends Serializable> extends SimpleJpa
      * @return int
      * @throws
      * @author feifei.liu
-     * @date 2015年10月10日 下午12:01:51
+     * @date 2015年10月10日 下午12:day01:51
      */
     public int updateQuery(String updateQuery){
         Query query=em.createQuery(updateQuery);
@@ -346,7 +346,7 @@ public class BaseJpaRepositoryImpl<T, ID extends Serializable> extends SimpleJpa
      * @param pageable
      * @return
      * @author feifei.liu
-     * @date 2017年4月14日 下午22:52:01
+     * @date 2017年4月14日 下午22:52:day01
      */
     public Page<T> findByAuto(T example, Pageable pageable) {
         return findAll(DynamicSpecifications.byAuto(em, example), pageable);

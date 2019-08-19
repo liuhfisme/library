@@ -17,7 +17,7 @@ package com.library.utils.itext.constant;
  *
  * @author liufeifei02@beyondsoft.com
  * @version 1.0
- * @date 2019-01-11
+ * @date 2019-day01-11
  */
 public interface PdfConstant {
 

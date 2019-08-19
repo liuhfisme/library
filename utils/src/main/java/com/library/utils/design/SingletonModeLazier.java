@@ -4,7 +4,7 @@ package com.library.utils.design;
  * @ClassName: SingletonModeLazier
  * @Description: 单例模式- 懒汉式
  * @author feifei.liu
- * @date 2018/11/27 11:01
+ * @date 2018/11/27 11:day01
  */
 public class SingletonModeLazier {
     private static SingletonModeLazier singletonModeLazier1;

@@ -12,7 +12,7 @@ import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombi
  *
  * @author liufefei02@beyondsoft.com
  * @version 1.0
- * @date 2019-04-01
+ * @date 2019-04-day01
  */
 public class ChineseCharToEnUtil {
     /**

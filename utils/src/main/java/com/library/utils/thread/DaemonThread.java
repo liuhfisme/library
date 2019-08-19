@@ -4,7 +4,7 @@ package com.library.utils.thread;
  * @ClassName: DaemonThread
  * @Description: 示例- 守护线程
  * @author feifei.liu
- * @date 2018/11/18 14:01
+ * @date 2018/11/18 14:day01
  */
 public class DaemonThread extends Thread {
     private int i = 0;

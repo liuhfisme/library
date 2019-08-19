@@ -11,7 +11,7 @@ import java.util.List;
  * @ClassName: MyRule
  * @Description: 自定义 Ribbon 负载均衡规则
  * @author feifei.liu
- * @date 2018/12/28 17:01
+ * @date 2018/12/28 17:day01
  */
 public class MyRule extends ZoneAvoidanceRule implements IRule {
     private ILoadBalancer lb;

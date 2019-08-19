@@ -167,7 +167,7 @@ public class CustomRepositoryImpl<T, ID extends Serializable> extends SimpleJpaR
      * @return int
      * @throws
      * @author feifei.liu
-     * @date 2015年10月10日 下午12:01:51
+     * @date 2015年10月10日 下午12:day01:51
      */
     @Override
     public int updateQuery(String updateQuery){
@@ -203,7 +203,7 @@ public class CustomRepositoryImpl<T, ID extends Serializable> extends SimpleJpaR
      * @param pageable
      * @return
      * @author feifei.liu
-     * @date 2017年4月14日 下午22:52:01
+     * @date 2017年4月14日 下午22:52:day01
      */
     @Override
     public Page<T> findByAuto(T example, Pageable pageable) {

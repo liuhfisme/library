@@ -1,0 +1,22 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.library.sboot.authorsettings.AuthorSettings",
+      "name": "author",
+      "type": "com.library.sboot.authorsettings.AuthorSettings"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.library.sboot.authorsettings.AuthorSettings",
+      "name": "author.age",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.library.sboot.authorsettings.AuthorSettings",
+      "name": "author.name",
+      "type": "java.lang.String"
+    }
+  ]
+}

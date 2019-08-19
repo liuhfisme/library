@@ -62,7 +62,7 @@ public class SendMail {
             mimeBodyPart.setContent(bodyMultipart);
             MimeBodyPart htmlPart = new MimeBodyPart();
             htmlPart.setContent("刘飞飞（员工编号：000003），你好:<br/><br/>" +
-                            "附件是 2019-03-01 - 2019-03-31 期间内的工资明细，请及时查收！<br/>" +
+                            "附件是 2019-03-day01 - 2019-03-31 期间内的工资明细，请及时查收！<br/>" +
                             "如有疑问，请联系人力资源部，谢谢。<br/><br/>" +
                             "人力资源部<br/>========================================",
                     "text/html;charset=utf-8");

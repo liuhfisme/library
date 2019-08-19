@@ -1,0 +1,14 @@
+spring:
+  rabbitmq:
+    addresses: ${MQ_HOST:192.168.174.201}:${MQ_PORT:5673}
+    username: admin
+    password: admin
+    virtualHost: /
+    publisherConfirms: true
+    publisherReturns: true
+    template:
+      mandatory: true
+    listener:
+      simple:
+        concrrency: 2
+        maxConcurrency: 2

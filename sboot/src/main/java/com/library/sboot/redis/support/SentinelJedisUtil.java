@@ -12,7 +12,7 @@ import java.util.*;
 
 /**
  * ClassName: SentinelJedisUtil
- * 
+ *
  * @Description: 高可用SentinelJedis工具类
  * @author feifei.liu
  * @date 2016年6月28日 下午5:17:23
@@ -84,7 +84,7 @@ public class SentinelJedisUtil {
 	 * @param key
 	 *            REDIS键值
 	 * @param unixTimestamp
-	 *            unix时间戳，从1970-01-01 00:00:00开始到现在的秒数
+	 *            unix时间戳，从1970-day01-day01 00:00:00开始到现在的秒数
 	 * @return
 	 * @return long 1：设置了过期时间 0：没有设置过期时间/不能设置过期时间
 	 * @throws
@@ -466,7 +466,7 @@ public class SentinelJedisUtil {
 	 * @return int
 	 * @throws
 	 * @author feifei.liu
-	 * @date 2016年6月28日 下午5:27:01
+	 * @date 2016年6月28日 下午5:27:day01
 	 */
 	public static int removeListValue(String key, long count,
 			List<String> values) {
@@ -592,7 +592,7 @@ public class SentinelJedisUtil {
 		} catch (Exception ex) {
 			logger.error("setHMap error.", ex);
 			returnBrokenResource(jedis);
-		} 
+		}
 		finally {
 			returnResource(jedis);
 		}
@@ -607,7 +607,7 @@ public class SentinelJedisUtil {
 	 *            Map对象 key值
 	 * @param mapValue
 	 *            Map对象 value值
-	 * 
+	 *
 	 * @return
 	 * @return boolean
 	 * @throws
@@ -647,7 +647,7 @@ public class SentinelJedisUtil {
 		} catch (Exception ex) {
 			logger.error("setHMap error.", ex);
 			returnBrokenResource(jedis);
-		} 
+		}
 		finally {
 			returnResource(jedis);
 		}
@@ -693,11 +693,11 @@ public class SentinelJedisUtil {
 		try {
 			jedis = sentinelJedisUtil.jedisSentinelPool.getResource();
 			return jedis.hget(key, field);
-			
+
 		} catch (Exception ex) {
 			logger.error("getHMap error.", ex);
 			returnBrokenResource(jedis);
-		} 
+		}
 		finally {
 			returnResource(jedis);
 		}
@@ -718,11 +718,11 @@ public class SentinelJedisUtil {
 		try {
 			jedis = sentinelJedisUtil.jedisSentinelPool.getResource();
 			return jedis.hgetAll(key);
-			
+
 		} catch (Exception ex) {
 			logger.error("getHMap error.", ex);
 			returnBrokenResource(jedis);
-		} 
+		}
 		finally {
 			returnResource(jedis);
 		}
@@ -744,11 +744,11 @@ public class SentinelJedisUtil {
 		try {
 			jedis = sentinelJedisUtil.jedisSentinelPool.getResource();
 			return jedis.hdel(key, fields);
-			
+
 		} catch (Exception ex) {
 			logger.error("getHMap error.", ex);
 			returnBrokenResource(jedis);
-		} 
+		}
 		finally {
 			returnResource(jedis);
 		}
@@ -774,7 +774,7 @@ public class SentinelJedisUtil {
 		} catch (Exception ex) {
 			logger.error("getHMap error.", ex);
 			returnBrokenResource(jedis);
-		} 
+		}
 		finally {
 			returnResource(jedis);
 		}
@@ -801,7 +801,7 @@ public class SentinelJedisUtil {
 		} catch (Exception ex) {
 			logger.error("getHMap error.", ex);
 			returnBrokenResource(jedis);
-		} 
+		}
 		finally {
 			returnResource(jedis);
 		}
@@ -829,7 +829,7 @@ public class SentinelJedisUtil {
 		} catch (Exception ex) {
 			logger.error("delHMap error.", ex);
 			returnBrokenResource(jedis);
-		} 
+		}
 		finally {
 			returnResource(jedis);
 		}
@@ -857,7 +857,7 @@ public class SentinelJedisUtil {
 		} catch (Exception ex) {
 			logger.error("delHMap error.", ex);
 			returnBrokenResource(jedis);
-		} 
+		}
 		finally {
 			returnResource(jedis);
 		}
@@ -1043,7 +1043,7 @@ public class SentinelJedisUtil {
 	 * @param key
 	 *            REDIS键值
 	 * @param hsetKey
-	 * 
+	 *
 	 * @param hsetValue
 	 * @return
 	 * @return boolean
@@ -1100,7 +1100,7 @@ public class SentinelJedisUtil {
 	 * @param key
 	 *            REDIS键值
 	 * @param hsetKey
-	 * 
+	 *
 	 * @return
 	 * @return String
 	 * @throws
@@ -1149,7 +1149,7 @@ public class SentinelJedisUtil {
 	 * @param key
 	 *            域名
 	 * @param hsetKey
-	 * 
+	 *
 	 * @return
 	 * @return long
 	 * @throws
@@ -1176,7 +1176,7 @@ public class SentinelJedisUtil {
 	 * @param key
 	 *            REDIS键值
 	 * @param fields
-	 * 
+	 *
 	 * @return
 	 * @return long
 	 * @throws
@@ -1224,7 +1224,7 @@ public class SentinelJedisUtil {
 	 * @param key
 	 *            REDIS键值
 	 * @param field
-	 * 
+	 *
 	 * @return
 	 * @return boolean
 	 * @throws
@@ -1871,24 +1871,24 @@ public class SentinelJedisUtil {
 	@SuppressWarnings("deprecation")
 	public static void returnBrokenResource(Jedis jedis) {
 		try {
-			if (jedis != null) 
+			if (jedis != null)
 			sentinelJedisUtil.jedisSentinelPool.returnBrokenResource(jedis);
 		} catch (Exception e) {
 			//logger.error("returnBrokenResource error.", e);
 		}
 	}
-	
+
 	/**
 	 * @Description: 使用于finally方法
-	 * @param jedis   
-	 * @return void  
+	 * @param jedis
+	 * @return void
 	 * @throws
 	 * @author lizs
 	 * @date 2016年8月9日 下午8:07:16
 	 */
 	public static void returnResource(Jedis jedis) {
 		try {
-			if (jedis != null) 
+			if (jedis != null)
 			sentinelJedisUtil.jedisSentinelPool.returnResource(jedis);
 		} catch (Exception e) {
 			//logger.error("returnBrokenResource error.", e);

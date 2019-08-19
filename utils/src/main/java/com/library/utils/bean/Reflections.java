@@ -289,7 +289,7 @@ public class Reflections {
 	 * @Description: 通过反射, 获得Class定义中声明的泛型参数的类型, 注意泛型必须定义在父类处 如无法找到, 返回Object.class. eg.
 	 * @param clazz
 	 * @return
-	 * @return Class<T>  
+	 * @return Class<T>
 	 * @throws
 	 * @author feifei.liu
 	 * @date 2015年9月25日 下午7:59:53
@@ -338,7 +338,7 @@ public class Reflections {
 	 * @Description: 通过反射，获得当前对象类型
 	 * @param instance
 	 * @return
-	 * @return Class<?>  
+	 * @return Class<?>
 	 * @throws
 	 * @author feifei.liu
 	 * @date 2015年9月25日 下午8:00:29
@@ -364,7 +364,7 @@ public class Reflections {
 	 * @return RuntimeException
 	 * @throws
 	 * @author feifei.liu
-	 * @date 2015年9月25日 下午8:01:08
+	 * @date 2015年9月25日 下午8:day01:08
 	 */
 	public static RuntimeException convertReflectionExceptionToUnchecked(Exception e) {
 		if ((e instanceof IllegalAccessException) || (e instanceof IllegalArgumentException)

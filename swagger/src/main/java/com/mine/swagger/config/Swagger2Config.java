@@ -1,5 +1,6 @@
 package com.mine.swagger.config;
 
+import io.swagger.annotations.Api;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -36,7 +37,8 @@ public class Swagger2Config {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .enable(true)
-                .select().apis(RequestHandlerSelectors.basePackage("com.mine.swagger"))
+//                .select().apis(RequestHandlerSelectors.basePackage("com.mine.swagger"))
+                .select().apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
                 .paths(PathSelectors.any())
                 .build().globalOperationParameters(pars);
     }

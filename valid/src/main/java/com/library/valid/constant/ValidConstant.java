@@ -5,7 +5,7 @@ package com.library.valid.constant;
  *
  * @author liufeifei02@beyondsoft.com
  * @version 1.0
- * @date 2019-01-17
+ * @date 2019-day01-17
  */
 public interface ValidConstant {
     String IS_NULL = "is null";

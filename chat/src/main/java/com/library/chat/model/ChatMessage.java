@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
  * @ClassName: ChatMessage
  * @Description: TODO
  * @author feifei.liu
- * @date 2018/11/23 11:01
+ * @date 2018/11/23 11:day01
  */
 @Data
 @NoArgsConstructor

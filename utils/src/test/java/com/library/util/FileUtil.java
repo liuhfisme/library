@@ -22,7 +22,7 @@ import java.util.NoSuchElementException;
  *
  * @author liufefei02@beyondsoft.com
  * @version 1.0
- * @date 2019-01-18
+ * @date 2019-day01-18
  */
 public class FileUtil {
     public static void exportExcel(List<?> list, String title, String sheetName, Class<?> pojoClass, String fileName, boolean isCreateHeader, HttpServletResponse response){
@@ -96,5 +96,5 @@ public class FileUtil {
         }
         return list;
     }
-    
+
 }
