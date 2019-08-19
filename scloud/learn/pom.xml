@@ -22,7 +22,6 @@
         <module>scl-security</module>
         <module>scl-gateway</module>
         <module>scl-config</module>
-        <module>scl-config-resources</module>
     </modules>
 
     <properties>
