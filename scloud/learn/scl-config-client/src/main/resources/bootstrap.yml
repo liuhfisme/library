@@ -17,5 +17,5 @@ eureka:
     hostname: localhost
   client:
     serviceUrl:
-      defaultZone: http://${REGISTRY_NAME}:${REGISTRY_PASSWORD}@${REGISTRY_HOST}:8761/eureka/,http://${REGISTRY_NAME}:${REGISTRY_PASSWORD}@${REGISTRY_HOST}:8762/eureka/
+      defaultZone: http://${REGISTRY_NAME:admin}:${REGISTRY_PASSWORD:admin}@localhost:8761/eureka/,http://${REGISTRY_NAME:admin}:${REGISTRY_PASSWORD:admin}@localhost:8762/eureka/
     instance-info-replication-interval-seconds: 30 #健康自检定时周期（默认30秒）

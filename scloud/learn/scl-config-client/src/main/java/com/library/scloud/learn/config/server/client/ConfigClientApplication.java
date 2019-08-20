@@ -24,7 +24,7 @@ public class ConfigClientApplication {
         SpringApplication.run(ConfigClientApplication.class, args);
     }
 
-    @Value("${xxx}")
+    @Value("${ESOMP_USER_SECRET}")
     private String xxx;
 
     @GetMapping("/test")
