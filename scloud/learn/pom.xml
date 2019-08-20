@@ -21,7 +21,8 @@
         <module>scl-invoker</module>
         <module>scl-security</module>
         <module>scl-gateway</module>
-        <module>scl-config</module>
+        <module>scl-config-server</module>
+        <module>scl-config-client</module>
     </modules>
 
     <properties>

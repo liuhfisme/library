@@ -1,4 +1,4 @@
-package com.library.scloud.learn.config;
+package com.library.scloud.learn.config.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
