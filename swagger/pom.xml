@@ -13,7 +13,7 @@
     <artifactId>swagger</artifactId>
 
     <properties>
-        <spring-boot-starter-version>2.0.6.RELEASE</spring-boot-starter-version>
+        <spring-boot-starter.version>2.1.7.RELEASE</spring-boot-starter.version>
         <lombok.version>1.18.4</lombok.version>
         <swagger.version>2.9.2</swagger.version>
     </properties>
@@ -23,7 +23,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot-starter-version}</version>
+                <version>${spring-boot-starter.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -38,7 +38,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
-            <version>${spring-boot-starter-version}</version>
+            <version>${spring-boot-starter.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>

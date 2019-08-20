@@ -12,7 +12,7 @@
     <groupId>com.library</groupId>
     <artifactId>quartz</artifactId>
     <properties>
-        <spring-boot-starter-version>1.5.7.RELEASE</spring-boot-starter-version>
+        <spring-boot-starter.version>2.1.7.RELEASE</spring-boot-starter.version>
         <postgresql.version>42.0.0</postgresql.version>
         <mysql.version>5.1.35</mysql.version>
         <quartz.version>2.3.0</quartz.version>
@@ -22,7 +22,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot-starter-version}</version>
+                <version>${spring-boot-starter.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -53,7 +53,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
-            <version>${spring-boot-starter-version}</version>
+            <version>${spring-boot-starter.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>

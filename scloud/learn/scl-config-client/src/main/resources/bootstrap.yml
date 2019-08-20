@@ -6,10 +6,10 @@ spring:
       name: config-server
       profile: test
       label: master
-      uri: http://localhost:9900/
-management:
-  security:
-    enabled: false
+#      uri: http://localhost:9900/
+      discovery:
+        enabled: true
+        service-id: CONFIG-SERVER
 server:
   port: 9911
 eureka:

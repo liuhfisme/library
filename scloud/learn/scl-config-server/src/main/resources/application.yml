@@ -14,7 +14,7 @@ spring:
           searchPaths: scloud/learn/scl-config-resources
           username: liuff2513@163.com
           password: liuhaifei6174
-      label: master
+          label: master
 #  profiles:
 #    active:
 #      - native
