@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: invoker-service
+  main:
+    allow-bean-definition-overriding: true
 eureka:
   instance:
     hostname: localhost

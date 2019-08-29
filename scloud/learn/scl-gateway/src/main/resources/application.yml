@@ -13,7 +13,9 @@ eureka:
 
 ribbon:
   eureka:
-    enabled: false
+    enabled: true
+  restclient:
+    enabled: true
 
 zuul:
   routes:
@@ -21,8 +23,8 @@ zuul:
       path: /routeTest/163
       url: http://www.163.com
     book:
-      path: /book/**
+      path: /provider/**
       service-id: provider-service
     sale:
-      path: /sale/**
+      path: /invoker/**
       service-id: invoker-service
