@@ -2,7 +2,7 @@ package com.library.chat.core.config;
 
 import com.library.chat.core.aop.LibraryChannelInterceptorAdapter;
 import com.library.chat.core.aop.LibraryHandShakeInterceptor;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.ChannelRegistration;
@@ -25,7 +25,7 @@ import org.springframework.web.socket.handler.WebSocketHandlerDecoratorFactory;
  */
 @Configuration
 @EnableWebSocketMessageBroker
-@Log4j
+@Log4j2
 public class WebSocketRabbitMQMessageBrokerConfigurer extends AbstractWebSocketMessageBrokerConfigurer { //// 此注解开使用STOMP协议来传输基于消息代理的消息，此时可以在@Controller类中使用@MessageMapping
     @Autowired
     private LibraryHandShakeInterceptor libraryHandShakeInterceptor;

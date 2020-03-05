@@ -37,7 +37,7 @@ public class ApiController {
     }
     private static void test() {
         long currentMills = System.currentTimeMillis();
-        Map<String,String> param = new HashMap<>(16);
+        Map<String,String> param = new HashMap(16);
         param.put("userId","9527");
         param.put("amount","9.99");
         param.put("productId","9885544154");

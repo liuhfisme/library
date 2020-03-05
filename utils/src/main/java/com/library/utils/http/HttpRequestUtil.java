@@ -1,6 +1,7 @@
 package com.library.utils.http;
 
 import org.apache.commons.httpclient.HttpStatus;
+import org.apache.commons.io.FileUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.ParseException;
@@ -12,15 +13,23 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLContexts;
 import org.apache.http.conn.ssl.TrustSelfSignedStrategy;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 import javax.net.ssl.SSLContext;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URLDecoder;
 import java.security.KeyManagementException;
 import java.security.KeyStore;
@@ -263,49 +272,68 @@ public class HttpRequestUtil {
     }
 
 
-    //    public void upload() {
-//        CloseableHttpClient httpclient = HttpClients.createDefault();
-//        try {
-//            HttpPost httppost = new HttpPost("http://localhost:8080/myDemo/Ajax/serivceFile.action");
-//
-//            FileBody bin = new FileBody(new File("F:\\image\\sendpix0.jpg"));
-//            StringBody comment = new StringBody("A binary file of some kind", ContentType.TEXT_PLAIN);
-//
-//            HttpEntity reqEntity = MultipartEntityBuilder.create().addPart("bin", bin).addPart("comment", comment).build();
-//
-//            httppost.setEntity(reqEntity);
-//
-//            System.out.println("executing request " + httppost.getRequestLine());
-//            CloseableHttpResponse response = httpclient.execute(httppost);
-//            try {
-//                System.out.println("----------------------------------------");
-//                System.out.println(response.getStatusLine());
-//                HttpEntity resEntity = response.getEntity();
-//                if (resEntity != null) {
-//                    System.out.println("Response content length: " + resEntity.getContentLength());
-//                }
+    public static final int cache = 10 * 1024;
+    public static void upload() {
+        CloseableHttpClient httpclient = HttpClients.createDefault();
+        try {
+            HttpPost httppost = new HttpPost("http://10.8.7.60:9166/excelToPdf");
+
+            FileBody bin = new FileBody(new File("E:\\opt\\1235443734219935744.xlsx"));
+            StringBody comment = new StringBody("A binary file of some kind", ContentType.TEXT_PLAIN);
+
+            HttpEntity reqEntity = MultipartEntityBuilder.create().addPart("file", bin).addPart("comment", comment).build();
+
+            httppost.setEntity(reqEntity);
+
+            System.out.println("executing request " + httppost.getRequestLine());
+            CloseableHttpResponse response = httpclient.execute(httppost);
+            try {
+                System.out.println("----------------------------------------");
+                System.out.println(response.getStatusLine());
+                HttpEntity resEntity = response.getEntity();
+                if (resEntity != null) {
+                    System.out.println("Response content length: " + resEntity.getContentLength());
+                }
 //                EntityUtils.consume(resEntity);
-//            } finally {
-//                response.close();
-//            }
-//        } catch (ClientProtocolException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                httpclient.close();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
+
+                File pdfFile = new File("E:\\opt\\"+System.currentTimeMillis()+".pdf");
+                pdfFile.getParentFile().mkdirs();
+                InputStream is = resEntity.getContent();
+
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                byte[] buff = new byte[100];
+                int rc = 0;
+                while ((rc = is.read(buff, 0, 100)) > 0) {
+                    bos.write(buff, 0, rc);
+                }
+                FileUtils.writeByteArrayToFile(pdfFile, bos.toByteArray());
+
+                is.close();
+                bos.flush();
+                bos.close();
+
+            } finally {
+                response.close();
+            }
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                httpclient.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     public static void main(String[] args) {
-        Map<String, String> params = new LinkedHashMap<>();
-        params.put("address", "北京市海淀区上地十街10号");
-        params.put("output", "json");
-        params.put("ak", "ViKGsun5SbzprZU0jcg1QTxBpiXRFy0h");
-        httpGet("http://api.map.baidu.com/geocoder/v2/",params);
-        httpPost("http://api.map.baidu.com/geocoder/v2/",params);
+        upload();
+//        Map<String, String> params = new LinkedHashMap<>();
+//        params.put("address", "北京市海淀区上地十街10号");
+//        params.put("output", "json");
+//        params.put("ak", "ViKGsun5SbzprZU0jcg1QTxBpiXRFy0h");
+//        httpGet("http://api.map.baidu.com/geocoder/v2/",params);
+//        httpPost("http://api.map.baidu.com/geocoder/v2/",params);
     }
 }
