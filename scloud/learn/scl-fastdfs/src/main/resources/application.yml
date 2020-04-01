@@ -1,0 +1,10 @@
+server:
+  port: 9527
+fdfs:
+  so-timeout: 300000
+  connect-timeout: 200000
+  thumb-image:
+    width: 150
+    height: 150
+  tracker-list:
+    - ${FASTDFS_TRACKER_HOST:10.8.7.71}:${FASTDFS_TRACKER_PORT:30221}
