@@ -7,9 +7,13 @@ import com.googlecode.aviator.lexer.token.OperatorType;
 import com.googlecode.aviator.runtime.function.AbstractFunction;
 import com.googlecode.aviator.runtime.function.AbstractVariadicFunction;
 import com.googlecode.aviator.runtime.function.FunctionUtils;
+import com.googlecode.aviator.runtime.type.AviatorDecimal;
 import com.googlecode.aviator.runtime.type.AviatorDouble;
 import com.googlecode.aviator.runtime.type.AviatorObject;
 import com.googlecode.aviator.runtime.type.AviatorString;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.math.NumberUtils;
+import org.apache.commons.math3.util.MathUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,14 +21,10 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
- * Aviator表达式.
+ * Aviator表达式 4.x.
  * @see [https://github.com/killme2008/aviator/wiki]
  *
  * @author liufefei02@beyondsoft.com
@@ -105,26 +105,30 @@ public class AviatorTests {
     public void test5() {
         // 1. 注册函数
         AviatorEvaluator.addFunction(new AddFunction());
-        Double result = (Double) AviatorEvaluator.execute("add(1, 2)");
-        Assert.assertEquals(Double.valueOf(3), result);
+        Object result = AviatorEvaluator.execute("add(1,2,add(3,4.0))");
+        Assert.assertEquals(10.0, result);
 
-        // 2. 注册函数
-        AviatorEvaluator.addFunction(new GetFirstNonNullFunction());
-        Object result1 = AviatorEvaluator.execute("getFirstNonNull(1)");
-        Object result2 = AviatorEvaluator.execute("getFirstNonNull(1,2,3,4,nil,5)");
-        Object result3 = AviatorEvaluator.execute("getFirstNonNull(a,b,c,d)");
-        System.out.println(result1);
-        System.out.println(result2);
-        System.out.println(result3);
-
-        // 3. lambda定义
-        AviatorEvaluator.defineFunction("add2", "lambda(x,y) -> x+y end");
-        long result4 = (long) AviatorEvaluator.execute("add2(1,2)");
-        Assert.assertEquals(3, result4);
+//        // 2. 注册函数
+//        AviatorEvaluator.addFunction(new GetFirstNonNullFunction());
+//        Object result1 = AviatorEvaluator.execute("getFirstNonNull(1)");
+//        Object result2 = AviatorEvaluator.execute("getFirstNonNull(1,2,3,4,nil,5)");
+//        Object result3 = AviatorEvaluator.execute("getFirstNonNull(a,b,c,d)");
+//        System.out.println(result1);
+//        System.out.println(result2);
+//        System.out.println(result3);
+//
+//        // 3. lambda定义
+//        AviatorEvaluator.defineFunction("add2", "lambda(x,y) -> x+y end");
+//        long result4 = (long) AviatorEvaluator.execute("add2(1,2)");
+//        Assert.assertEquals(3, result4);
 
         // 4. 加载自定义函数列表
 
         // 5. 函数加载器
+
+//        AviatorEvaluator.addStaticFunctions("mm", Math.class);
+//        Expression expression = AviatorEvaluator.compile("mm.addExact(1,3)");
+//        System.out.println(expression.execute());
     }
 
     /**
@@ -207,6 +211,7 @@ public class AviatorTests {
     @Test
     public void test9() {
         Assert.assertEquals("yes", AviatorEvaluator.exec("a>0? 'yes':'no'", 1));
+        Assert.assertEquals("yes", AviatorEvaluator.exec("if((a>0 || b>0) && c>0) {'yes'}else{'no'}", 1, 0, 1));
     }
 
     /**

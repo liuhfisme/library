@@ -31,7 +31,7 @@ public class SendMail {
         props.setProperty("mail.smtp.host", "ismtp.beyondsoft.com");
         props.setProperty("mail.smtp.port", "25");
         props.setProperty("mail.user", "liufeifei02@beyondsoft.com");
-        props.setProperty("mail.password", "Liuhaifei6174");
+        props.setProperty("mail.password", "Liufeifei6174");
         props.setProperty("mail.transport.protocol", "smtp");
         props.setProperty("maPil.smtp.starttls.enable", "true");
         props.setProperty("mail.smtp.auth", "true");
@@ -40,7 +40,7 @@ public class SendMail {
             Session session = Session.getInstance(props);
             transport = session.getTransport();
             long t1 = System.currentTimeMillis();
-            transport.connect("liufeifei02@beyondsoft.com", "Liuhaifei6174");
+            transport.connect("liufeifei02@beyondsoft.com", "Liufeifei6174");
             long t2 = System.currentTimeMillis();
             log.info("-----------连接消耗的时长"+(t2-t1)/1000.0);
 

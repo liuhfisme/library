@@ -50,6 +50,6 @@ public class Sender implements RabbitTemplate.ReturnCallback, RabbitTemplate.Con
 
     @Override
     public void returnedMessage(Message message, int replyCode, String replyText, String exchange, String routingKey) {
-        System.out.println(message.getMessageProperties().getCorrelationIdString() + " 发送失败");
+        System.out.println(message.getMessageProperties().getCorrelationId() + " 发送失败");
     }
 }
