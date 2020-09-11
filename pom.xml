@@ -19,6 +19,8 @@
         <module>valid</module>
         <module>swagger</module>
         <module>leetcode</module>
+        <module>chat-rocket</module>
+        <module>resume-analysis</module>
     </modules>
     <packaging>pom</packaging>
 
