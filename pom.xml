@@ -21,6 +21,7 @@
         <module>leetcode</module>
         <module>chat-rocket</module>
         <module>resume-analysis</module>
+        <module>demo-spring-boot-starter</module>
     </modules>
     <packaging>pom</packaging>
 
