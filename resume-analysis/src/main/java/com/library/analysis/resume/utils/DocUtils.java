@@ -248,6 +248,7 @@ public class DocUtils {
     public static void main(String[] args) throws Exception {
         final String DOC_PATH0 = "E:\\beyondsoft\\简历\\【JAVA高级工程师_北京】李晓明+5年.docx";
         final String DOC_PATH1 = "E:\\beyondsoft\\简历\\【JAVA高级工程师_北京】何飞 5年.doc";
-        getClassification(DOC_PATH1);
+        Classification classification = getClassification(DOC_PATH1);
+        System.out.println(classification);
     }
 }

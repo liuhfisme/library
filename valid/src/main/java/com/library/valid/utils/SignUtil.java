@@ -34,7 +34,7 @@ public class SignUtil {
 
     /**
      * APP 生成唯一secret
-     * <br/> 拱用户申请绑定到租户级别
+     * <br/> 供用户申请绑定到租户级别
      * @return
      */
     public static String createSecret() {

@@ -9,7 +9,6 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>utils</module>
-        <module>spring</module>
         <module>sboot</module>
         <module>game</module>
         <module>quartz</module>
