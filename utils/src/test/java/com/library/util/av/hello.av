@@ -1,3 +1,4 @@
 ## examples/hello.av
-
+a;b;c;
 println("hello, AviatorScript!");
+println(a + b + c);

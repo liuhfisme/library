@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * Aviator表达式 5.x.
@@ -32,8 +33,11 @@ public class AviatorRunScriptTests {
     @Test
     public void test1() throws IOException {
         Expression exp = AviatorEvaluator.getInstance().compileScript(scriptRootPath+"hello.av");
+        exp.getVariableNames().forEach(item -> {
+            System.out.println(item);
+        });
 //        Expression exp = AviatorEvaluator.compile("print('hello AviatorEvaluator');");
-        exp.execute();
+        exp.execute(exp.newEnv("a", "11", "b", 22, "c", "cccc"));
     }
 
     /**

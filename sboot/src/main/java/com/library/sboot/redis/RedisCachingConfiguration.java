@@ -42,6 +42,7 @@ public class RedisCachingConfiguration extends CachingConfigurerSupport {
     private int timeout;
 
     @Bean
+    @Override
     public KeyGenerator keyGenerator() {
         return new KeyGenerator() {
             @Override

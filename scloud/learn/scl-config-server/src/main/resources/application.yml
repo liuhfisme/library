@@ -6,18 +6,18 @@ spring:
   cloud:
     config:
       server:
-#        native:
-#          search-locations:
-#            - file:///E:/IdeaProjects/library/scloud/learn/scl-config-resources
-        git:
-          uri: https://github.com/liuff2513/library
-          searchPaths: scloud/learn/scl-config-resources
-          username: liuff2513@163.com
-          password: liuhaifei6174
-          label: master
-#  profiles:
-#    active:
-#      - native
+        native:
+          search-locations:
+            - file:///E:/IdeaProjects/library/scloud/learn/scl-config-resources
+#        git:
+#          uri: https://github.com/liuff2513/library
+#          searchPaths: scloud/learn/scl-config-resources
+#          username: liuff2513@163.com
+#          password: liuhaifei6174
+#          label: master
+  profiles:
+    active:
+      - native
 eureka:
   instance:
     hostname: localhost
