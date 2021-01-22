@@ -14,7 +14,7 @@
     <properties>
         <spring-boot-starter.version>2.1.7.RELEASE</spring-boot-starter.version>
         <postgresql.version>42.0.0</postgresql.version>
-        <mysql.version>5.1.35</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <quartz.version>2.3.0</quartz.version>
     </properties>
     <dependencyManagement>
