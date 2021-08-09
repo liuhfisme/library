@@ -11,14 +11,10 @@
         <module>utils</module>
         <module>sboot</module>
         <module>game</module>
-        <module>quartz</module>
-        <module>scheduler</module>
-        <module>chat</module>
         <module>scloud</module>
         <module>valid</module>
         <module>swagger</module>
         <module>leetcode</module>
-        <module>chat-rocket</module>
         <module>resume-analysis</module>
         <module>demo-spring-boot-starter</module>
     </modules>
@@ -26,6 +22,7 @@
 
     <properties>
         <lombok.version>1.18.4</lombok.version>
+        <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
@@ -36,4 +33,30 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <testSource>${java.version}</testSource>
+                    <testTarget>${java.version}</testTarget>
+                    <compilerArgument>-Xlint:unchecked</compilerArgument>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

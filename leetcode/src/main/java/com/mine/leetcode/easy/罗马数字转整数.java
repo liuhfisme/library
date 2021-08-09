@@ -81,7 +81,7 @@ public class 罗马数字转整数 {
                 {"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"},
                 {"","M","MM","MMM"}
         };
-
+        return 0;
     }
 
     public static int romanToInt(String s) {
@@ -91,6 +91,6 @@ public class 罗马数字转整数 {
             {"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"},
             {"","M","MM","MMM"}
         };
-
+        return 0;
     }
 }

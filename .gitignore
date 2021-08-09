@@ -3,13 +3,8 @@
 library.iml
 
 scloud/learn/.mvn/
-chat-rocket/src/
 data-es/src/main/java/com/library/data/es/config/
 demo-spring-boot-starter/src/test/
-docker/elasticsearch/es1/data/
-docker/elasticsearch/es2/data/
-docker/elk/elasticsearch/
-docker/elk/filebeat/data/
 game/target/
 leetcode/src/main/java/com/mine/leetcode/hard/
 leetcode/src/main/java/com/mine/leetcode/medium/
@@ -31,3 +26,5 @@ swagger/src/test/
 utils/src/main/java/com/library/utils/algorithm/jep/
 utils/target/
 valid/src/test/java/com/library/
+/**/*.iml
+/**/**/*.iml

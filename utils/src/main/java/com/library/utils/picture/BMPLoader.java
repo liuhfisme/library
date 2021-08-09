@@ -131,6 +131,6 @@ public class BMPLoader {
 	}
 
 	public static void main(String[] args) {
-		BMPLoader.compareImage("F:\\问卷示例.jpg", "F:\\问卷示例4.jpg");
+		BMPLoader.compareImage("F:\\BaiduNetdiskDownload\\share.jpg", "F:\\BaiduNetdiskDownload\\share3.png");
 	}
 }

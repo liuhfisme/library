@@ -2,6 +2,8 @@ package com.library.data.es.service;
 
 import com.library.data.es.model.Blog;
 import com.library.data.es.repository.BlogRepository;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ import java.util.Optional;
 public class BlogService {
     @Autowired
     private BlogRepository blogRepository;
+
+    @Autowired
+    private RestHighLevelClient highLevelClient;
 
     /**
      * 保存
