@@ -1,0 +1,6 @@
+let a = 10000;
+let b = 21.75;
+println(a/b);
+println(scale(a/b, 2));
+println(scale(a, 5, 0));
+##println(scale(a, 2, 0, 1));

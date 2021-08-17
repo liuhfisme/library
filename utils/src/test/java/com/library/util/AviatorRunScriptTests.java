@@ -2,10 +2,13 @@ package com.library.util;
 
 import com.googlecode.aviator.AviatorEvaluator;
 import com.googlecode.aviator.Expression;
+import com.library.util.function.ScaleFunction;
+import javafx.scene.transform.Scale;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Map;
 
 /**
@@ -18,6 +21,14 @@ import java.util.Map;
  */
 public class AviatorRunScriptTests {
     private String scriptRootPath = "E:\\IdeaProjects\\library\\utils\\src\\test\\java\\com\\library\\util\\av\\";
+
+    @Test
+    public void scaleTest() throws IOException {
+        //注册函数
+        AviatorEvaluator.addFunction(new ScaleFunction());
+        Expression exp = AviatorEvaluator.getInstance().compileScript(scriptRootPath+"scale.av");
+        Object execute = exp.execute();
+    }
 
     @Test
     public void salaryTest() throws IOException {
@@ -37,7 +48,7 @@ public class AviatorRunScriptTests {
             System.out.println(item);
         });
 //        Expression exp = AviatorEvaluator.compile("print('hello AviatorEvaluator');");
-        exp.execute(exp.newEnv("a", "11", "b", 22, "c", "cccc"));
+        exp.execute(exp.newEnv("a", 11, "b", 22, "c", 33));
     }
 
     /**
