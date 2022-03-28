@@ -9,14 +9,12 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>utils</module>
-        <module>sboot</module>
         <module>game</module>
         <module>scloud</module>
         <module>valid</module>
         <module>swagger</module>
         <module>leetcode</module>
         <module>resume-analysis</module>
-        <module>demo-spring-boot-starter</module>
     </modules>
     <packaging>pom</packaging>
 

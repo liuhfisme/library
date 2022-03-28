@@ -22,11 +22,18 @@ public class MyCircularQueueTest {
         Assert.assertTrue(queue.enQueue(5));
         Assert.assertFalse(queue.enQueue(6));
 
+        System.out.println(queue.Rear()+" - "+queue.Front());
         Assert.assertTrue(queue.deQueue());
+        System.out.println(queue.Rear()+" - "+queue.Front());
         Assert.assertTrue(queue.deQueue());
+        System.out.println(queue.Rear()+" - "+queue.Front());
         Assert.assertTrue(queue.deQueue());
+        System.out.println(queue.Rear()+" - "+queue.Front());
         Assert.assertTrue(queue.deQueue());
+        System.out.println(queue.Rear()+" - "+queue.Front());
         Assert.assertTrue(queue.deQueue());
+        System.out.println(queue.Rear()+" - "+queue.Front());
         Assert.assertFalse(queue.deQueue());
+        System.out.println(queue.Rear()+" - "+queue.Front());
     }
 }
