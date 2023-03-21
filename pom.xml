@@ -16,7 +16,6 @@
         <module>swagger</module>
         <module>leetcode</module>
         <module>resume-analysis</module>
-        <module>demo-spring-boot-starter</module>
     </modules>
     <packaging>pom</packaging>
 
