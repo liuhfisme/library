@@ -1,5 +1,6 @@
 package com.library.analysis.resume.utils;
 
+import com.library.analysis.resume.model.BasicEnum;
 import com.library.analysis.resume.model.ClassificationEnum;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -45,10 +46,11 @@ public class RegexUtils {
     /**
      * 个人信息
      */
-    public final static String REG_BASICS_NAME = "(姓\\s*名|名\\s*字|名\\s*称|昵\\s*称|称\\s*呼)\\s*(:|：)\\s*\\S+";
+    public final static String REG_BASIC_NAME = "(姓\\s*名|名\\s*字|名\\s*称|昵\\s*称|称\\s*呼)\\s*(:|：)\\s*\\S+";
 
 
     public final static Map<ClassificationEnum, String> REGEX = new HashMap<>();
+    public final static Map<BasicEnum, String> BASIC_REGEX = new HashMap<>();
 
     static {
         REGEX.put(ClassificationEnum.educations, REG_EDUCATIONS);
@@ -58,6 +60,8 @@ public class RegexUtils {
         REGEX.put(ClassificationEnum.evaluations, REG_EVALUATIONS);
         REGEX.put(ClassificationEnum.skills, REG_SKILLS);
         REGEX.put(ClassificationEnum.pms, REG_PMS);
+        // 个人信息
+        BASIC_REGEX.put(BasicEnum.name, REG_BASIC_NAME);
     }
 
     public static void main(String[] args) {

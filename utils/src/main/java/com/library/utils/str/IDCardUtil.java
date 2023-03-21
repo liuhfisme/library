@@ -8,10 +8,9 @@ import java.util.Random;
 
 /**
  * ClassName: IDCardUtil
- * Description:
- * <p>
- * 身份证验证的工具（支持15位或18位省份证）
- * 身份证号码结构：
+ *
+ *<p>身份证验证的工具（支持15位或18位省份证）</p>
+ *<p>身份证号码结构：</p>
  * <p>
  * 根据〖中华人民共和国国家标准GB11643-1999〗中有关公民身份号码的规定，公民身份号码是特征组合码，由十七位数字本体码和一位数字校验码组成。
  * 排列顺序从左至右依次为：6位数字地址码，8位数字出生日期码，3位数字顺序码和1位数字校验码。
@@ -59,7 +58,7 @@ public class IDCardUtil {
      *     91 : 国外
      * </pre>
      */
-    final static String CITY_CODE[] = {"11", "12", "13", "14", "15", "21", "22", "23", "31", "32", "33", "34", "35", "36", "37", "41", "42", "43", "44", "45", "46", "50", "51", "52", "53", "54", "61", "62", "63", "64", "65", "71", "81", "82", "91"};
+    final static String[] CITY_CODE = {"11", "12", "13", "14", "15", "21", "22", "23", "31", "32", "33", "34", "35", "36", "37", "41", "42", "43", "44", "45", "46", "50", "51", "52", "53", "54", "61", "62", "63", "64", "65", "71", "81", "82", "91"};
 
     /**
      * 效验码
@@ -73,29 +72,41 @@ public class IDCardUtil {
     final static int[] POWER = {7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
 
     /**
+     * LEN
+     */
+    final static int LEN_2 = 2;
+    final static int LEN_15 = 15;
+    final static int LEN_18 = 18;
+
+    /**
      * 身份证验证
      *
      * @param id 号码内容
      * @return 是否有效
      */
     public final static boolean isValid(String id) {
-        if (id == null)
+        if (id == null) {
             return false;
+        }
 
         int len = id.length();
-        if (len != 15 && len != 18)
+        if (len != LEN_15 && len != LEN_18) {
             return false;
+        }
 
         //校验区位码
-        if (!validCityCode(id.substring(0, 2)))
+        if (!validCityCode(id.substring(0, LEN_2))) {
             return false;
+        }
 
         //校验生日
-        if (!validDate(id))
+        if (!validDate(id)) {
             return false;
+        }
 
-        if (len == 15)
+        if (len == LEN_15) {
             return true;
+        }
 
         //校验位数
         return validParityBit(id);
@@ -107,12 +118,14 @@ public class IDCardUtil {
         int power = 0;
         for (int i = 0; i < cs.length; i++) {
             //最后一位可以是X
-            if (i == cs.length - 1 && cs[i] == 'X')
+            if (i == cs.length - 1 && cs[i] == 'X') {
                 break;
+            }
 
             // 非数字
-            if (cs[i] < '0' || cs[i] > '9')
+            if (cs[i] < '0' || cs[i] > '9') {
                 return false;
+            }
 
             // 加权求和
             if (i < cs.length - 1) {
@@ -127,8 +140,9 @@ public class IDCardUtil {
             String birth = id.length() == 15 ? "19" + id.substring(6, 12) : id.substring(6, 14);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
             Date birthDate = sdf.parse(birth);
-            if (!birth.equals(sdf.format(birthDate)))
+            if (!birth.equals(sdf.format(birthDate))) {
                 return false;
+            }
         } catch (ParseException e) {
             return false;
         }
@@ -137,8 +151,9 @@ public class IDCardUtil {
 
     private static boolean validCityCode(String cityCode) {
         for (String code : CITY_CODE) {
-            if (code.equals(cityCode))
+            if (code.equals(cityCode)) {
                 return true;
+            }
         }
         return false;
     }
@@ -150,11 +165,13 @@ public class IDCardUtil {
      * @return
      */
     final public static String id15To18(String id) {
-        if (id == null || id.length() != 15)
+        if (id == null || id.length() != LEN_15) {
             return null;
+        }
 
-        if (!isValid(id))
+        if (!isValid(id)) {
             return null;
+        }
 
         String id17 = id.substring(0, 6) + "19" + id.substring(6);
 
@@ -181,24 +198,27 @@ public class IDCardUtil {
         return random.nextInt(max + 1) % (max - min + 1) + min;
     }
 
-    public final static String generateID() {
+    public final static String generateId() {
         // 地址码
         String body = CITY_CODE[rand(0, CITY_CODE.length - 1)] + "0101";
 
         // 出生年
         String y = String.valueOf(rand(1950, Calendar.getInstance().get(Calendar.YEAR)));
         String m = String.valueOf(rand(1, 12));
-        if (m.length() == 1)
+        if (m.length() == 1) {
             m = "0" + m;
+        }
         String d = String.valueOf(rand(1, 28));
-        if (d.length() == 1)
+        if (d.length() == 1) {
             d = "0" + d;
+        }
 
         String idx = String.valueOf(rand(1, 999));
-        if (idx.length() == 1)
+        if (idx.length() == 1) {
             idx = "00" + idx;
-        else if (idx.length() == 2)
+        } else if (idx.length() == LEN_2) {
             idx = "0" + idx;
+        }
 
         body += y + m + d + idx;
 

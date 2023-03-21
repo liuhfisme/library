@@ -1,5 +1,8 @@
 package com.library.utils.dt;
 
+import sun.misc.Signal;
+import sun.misc.SignalHandler;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -24,6 +27,12 @@ public class DownloadFile {
     static String fileName;
     static RandomAccessFile osf; //文件操作
     public static void main(String[] args) {
+        SignalHandler signalHandler = new SignalHandler() {
+            @Override
+            public void handle(Signal signal) {
+
+            }
+        };
         // TODO Auto-generated method stub
 
         try {

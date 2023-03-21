@@ -15,6 +15,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -179,7 +181,14 @@ public class DocUtils {
         if (!CollectionUtils.isEmpty(basics)) {
             basic = new Basic();
             basics.forEach(item -> {
-
+//                System.out.println(item);
+                RegexUtils.BASIC_REGEX.entrySet().forEach(entry -> {
+                    Pattern compile = Pattern.compile(entry.getValue());
+                    String[] split = compile.split(item);
+                    for (int i = 0; i < split.length; i++) {
+                        System.out.println(split[i]);
+                    }
+                });
             });
 
         }
@@ -224,7 +233,7 @@ public class DocUtils {
         return indexMap;
     }
 
-    /**
+    /** 获取通用分类下标范围
      * @param texts
      * @return
      */
@@ -246,9 +255,16 @@ public class DocUtils {
     }
 
     public static void main(String[] args) throws Exception {
-        final String DOC_PATH0 = "E:\\beyondsoft\\简历\\【JAVA高级工程师_北京】李晓明+5年.docx";
-        final String DOC_PATH1 = "E:\\beyondsoft\\简历\\【JAVA高级工程师_北京】何飞 5年.doc";
+        final String DOC_PATH0 = "F:\\beyondsoft\\研发管理\\学历证书\\简历\\【JAVA高级工程师_北京】李晓明+5年.docx";
+        final String DOC_PATH1 = "F:\\beyondsoft\\研发管理\\学历证书\\简历\\【JAVA高级工程师_北京】何飞 5年.doc";
         Classification classification = getClassification(DOC_PATH1);
-        System.out.println(classification);
+        getBasic(classification.getBasics());
+//        Field[] fields = Classification.class.getDeclaredFields();
+//        for (int i = 0; i < fields.length; i++) {
+//            String fieldName = fields[i].getName();
+//            Method method = Classification.class.getDeclaredMethod("get"+StringUtils.capitalize(fieldName));
+//            System.out.println(fieldName+"\r\n=======================================================================");
+//            System.out.println(method.invoke(classification));
+//        }
     }
 }
