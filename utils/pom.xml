@@ -13,7 +13,7 @@
 
     <properties>
         <poi.version>4.0.1</poi.version>
-        <itextpdf.version>5.5.13</itextpdf.version>
+        <itextpdf.version>5.5.13.3</itextpdf.version>
         <itext-asian.version>5.2.0</itext-asian.version>
     </properties>
 
